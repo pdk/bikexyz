@@ -11,11 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131128172221) do
+ActiveRecord::Schema.define(:version => 20131128184531) do
+
+  create_table "bicycles", :force => true do |t|
+    t.string   "lookup_code"
+    t.string   "owner_name"
+    t.string   "owner_alternate_name"
+    t.string   "make"
+    t.string   "model"
+    t.string   "type"
+    t.string   "color"
+    t.string   "size"
+    t.string   "serial"
+    t.integer  "gears"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                  :default => "",     :null => false
+    t.string   "encrypted_password",     :default => "",     :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -33,8 +51,9 @@ ActiveRecord::Schema.define(:version => 20131128172221) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "authentication_token"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.string   "role",                   :default => "user"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
