@@ -1,0 +1,47 @@
+<h1>Listing bicycles</h1>
+
+<table>
+  <tr>
+    <th>Lookup code</th>
+    <th>Owner name</th>
+    <th>Owner alternate name</th>
+    <th>Make</th>
+    <th>Model</th>
+    <th>Type</th>
+    <th>Color</th>
+    <th>Size</th>
+    <th>Serial</th>
+    <th>Gears</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bicycles.each do |bicycle| %>
+  <tr>
+    <td><%= bicycle.lookup_code %></td>
+    <td><%= bicycle.owner_name %></td>
+    <td><%= bicycle.owner_alternate_name %></td>
+    <td><%= bicycle.make %></td>
+    <td><%= bicycle.model %></td>
+    <td><%= bicycle.type %></td>
+    <td><%= bicycle.color %></td>
+    <td><%= bicycle.size %></td>
+    <td><%= bicycle.serial %></td>
+    <td><%= bicycle.gears %></td>
+    <td><%= bicycle.city %></td>
+    <td><%= bicycle.state %></td>
+    <td><%= bicycle.country %></td>
+    <td><%= link_to 'Show', bicycle %></td>
+    <td><%= link_to 'Edit', edit_bicycle_path(bicycle) %></td>
+    <td><%= link_to 'Destroy', bicycle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bicycle', new_bicycle_path %>

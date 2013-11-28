@@ -1,4 +1,7 @@
 Bikexyz::Application.routes.draw do
+  resources :bicycles
+
+
   devise_for :users, path_names: { sign_in: "login", sign_out: "logout", sign_up: "new-account" }
 
   get "pages/contact", :as => 'contact_page'

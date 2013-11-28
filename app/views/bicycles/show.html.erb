@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Lookup code:</b>
+  <%= @bicycle.lookup_code %>
+</p>
+
+<p>
+  <b>Owner name:</b>
+  <%= @bicycle.owner_name %>
+</p>
+
+<p>
+  <b>Owner alternate name:</b>
+  <%= @bicycle.owner_alternate_name %>
+</p>
+
+<p>
+  <b>Make:</b>
+  <%= @bicycle.make %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%= @bicycle.model %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @bicycle.type %>
+</p>
+
+<p>
+  <b>Color:</b>
+  <%= @bicycle.color %>
+</p>
+
+<p>
+  <b>Size:</b>
+  <%= @bicycle.size %>
+</p>
+
+<p>
+  <b>Serial:</b>
+  <%= @bicycle.serial %>
+</p>
+
+<p>
+  <b>Gears:</b>
+  <%= @bicycle.gears %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @bicycle.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @bicycle.state %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @bicycle.country %>
+</p>
+
+
+<%= link_to 'Edit', edit_bicycle_path(@bicycle) %> |
+<%= link_to 'Back', bicycles_path %>
