@@ -19,10 +19,13 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'less-rails'
-  gem 'therubyracer'
-  gem "twitter-bootstrap-rails"
 end
+
+# twitter bootstrap needs to be out of assets
+# so that helper can be accessed in production.
+gem 'less-rails'
+gem 'therubyracer'
+gem "twitter-bootstrap-rails"
 
 gem 'jquery-rails'
 
