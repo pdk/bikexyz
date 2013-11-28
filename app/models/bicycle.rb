@@ -1,4 +1,6 @@
 class Bicycle < ActiveRecord::Base
+  has_paper_trail
+  
   attr_accessible :city, :color, :country, :gears, :lookup_code, :make, :model, :owner_alternate_name, :owner_name, :serial, :size, :state, :type
 
   # weird hack so that we can have a column named "type".
