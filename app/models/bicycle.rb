@@ -6,5 +6,12 @@ class Bicycle < ActiveRecord::Base
   # weird hack so that we can have a column named "type".
   self.inheritance_column = :_type_disabled
 
-  validates_presence_of :owner_name, :make, :type
+  validates_presence_of :owner_name, :make, :type, :city, :country
+  
+  before_create :set_lookup_code
+  def set_lookup_code
+    self.lookup_code = LookupCode.create!.val   
+  end
+
+
 end
