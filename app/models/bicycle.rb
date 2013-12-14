@@ -8,6 +8,9 @@ class Bicycle < ActiveRecord::Base
 
   validates_presence_of :owner_name, :make, :type, :city, :country
   
+  has_many :user_bicycles
+  has_many :users, :through => :user_bicycle
+  
   before_create :set_lookup_code
   def set_lookup_code
     self.lookup_code = LookupCode.create!.val   

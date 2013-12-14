@@ -1,7 +1,12 @@
 require 'test_helper'
 
 class BicyclesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
+    @request.env["devise.mapping"] = Devise.mappings[:admin]
+    sign_in FactoryGirl.create(:admin)
+    
     @bicycle = bicycles(:one)
   end
 

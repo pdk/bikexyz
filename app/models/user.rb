@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :role
   # attr_accessible :title, :body
+
+  has_many :user_bicycles
+  has_many :bicycles, :through => :user_bicycle
   
   def role?(to_check=nil)
     if to_check.nil?
