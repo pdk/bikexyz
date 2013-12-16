@@ -1,0 +1,21 @@
+<h1>Listing bike_regs</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bike_regs.each do |bike_reg| %>
+  <tr>
+    <td><%= link_to 'Show', bike_reg %></td>
+    <td><%= link_to 'Edit', edit_bike_reg_path(bike_reg) %></td>
+    <td><%= link_to 'Destroy', bike_reg, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bike reg', new_bike_reg_path %>

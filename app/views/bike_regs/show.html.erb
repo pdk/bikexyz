@@ -1,0 +1,86 @@
+<p id="notice"><%= notice %></p>
+
+<h1><span class="regcode">bikexyz.com/<%= @bike_reg.xyz_code %>
+</span></h1>
+
+Registration created at <%= @bike_reg.created_at %> (<%= time_ago_in_words(@bike_reg.created_at) %> ago)
+<br>
+
+<% if @bike_reg.updated_at > @bike_reg.created_at %>
+  Last update at <%= @bike_reg.updated_at %> (<%= time_ago_in_words(@bike_reg.updated_at) %> ago)
+  <br>
+<% end %>
+
+<% rev_count = @bike_reg.versions.count %>
+<% if rev_count > 0 %>
+  Number of revisions since creation: <%= @bike_reg.versions.count %>
+  <br>
+<% end %>
+<br>
+
+<h4>Registered To</h4>
+
+<% if @bike_reg.name.present? %>
+Name: <span class="userdata"><%= @bike_reg.name %></span> <br>
+<% end %>
+
+<% if @bike_reg.alternate_name.present? %>
+Alternate Name: <span class="userdata"><%= @bike_reg.alternate_name %></span> <br>
+<% end %>
+
+<% if @bike_reg.city.present? %>
+City: <span class="userdata"><%= @bike_reg.city %></span> <br>
+<% end %>
+
+<% if @bike_reg.state.present? %>
+State: <span class="userdata"><%= @bike_reg.state %></span> <br>
+<% end %>
+
+<% if @bike_reg.country.present? %>
+Country: <span class="userdata"><%= @bike_reg.country %></span> <br>
+<% end %>
+
+<h4>Bicycle Info:</h4>
+
+<% if @bike_reg.serial_number.present? %>
+Serial Number: <span class="userdata"><%= @bike_reg.serial_number %></span> <br>
+<% end %>
+
+<% if @bike_reg.color.present? %>
+Color: <span class="userdata"><%= @bike_reg.color %></span> <br>
+<% end %>
+
+<% if @bike_reg.brand.present? %>
+Brand: <span class="userdata"><%= @bike_reg.brand %></span> <br>
+<% end %>
+
+<% if @bike_reg.model.present? %>
+Model: <span class="userdata"><%= @bike_reg.model %></span> <br>
+<% end %>
+
+<% if @bike_reg.kind.present? %>
+Kind: <span class="userdata"><%= @bike_reg.kind %></span> <br>
+<% end %>
+
+<% if @bike_reg.size.present? %>
+Size: <span class="userdata"><%= @bike_reg.size %></span> <br>
+<% end %>
+
+<% if @bike_reg.number_of_gears.present? %>
+Number of Gears: <span class="userdata"><%= @bike_reg.number_of_gears %></span> <br>
+<% end %>
+
+<% if @bike_reg.notes.present? %>
+Description/comments:
+<%= simple_format(@bike_reg.notes, {:class => :userdata}, wrapper_tag: "span") %>
+<br>
+<% end %>
+
+
+<br>
+<br>
+
+
+
+<%= link_to 'Edit', edit_bike_reg_path(@bike_reg) %> |
+<%= link_to 'Back', bike_regs_path %>

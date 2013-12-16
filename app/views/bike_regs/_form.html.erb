@@ -1,0 +1,55 @@
+<%= form_for(@bike_reg) do |f| %>
+
+<%= f.hidden_field :xyz_code %>
+
+<h3>About The Bicycle</h3>
+
+<%= f.text_field :serial_number, :placeholder => "Serial Number", :required => true %> <span class="formhint">(required)</span>
+<br>
+<%= f.text_field :color, :placeholder => "Color", :required => true %> <span class="formhint">(required)</span>
+<br>
+<%= f.text_field :brand, :placeholder => "brand" %> <span class="formhint">(Specialized, Trek, ...)</span>
+<br>
+<%= f.text_field :model, :placeholder => "model" %>
+<br>
+<%= f.text_field :kind, :placeholder => "kind" %> <span class="formhint">(road, mountain, hybrid, ...)</span>
+<br>
+<%= f.text_field :size, :placeholder => "size" %> <span class="formhint">(54cm, 19", medium, ...)</span>
+<br>
+<%= f.text_field :number_of_gears, :placeholder => "# of gears" %>
+<br>
+<%= f.text_area :notes, :placeholder => "additional description/comments", :size => "40x5" %>
+
+
+<h3>About You</h3>
+
+<%= f.text_field :name, :placeholder => "First M. Last", :required => true %> <span class="formhint">(required)</span>
+<br>
+<%= f.text_field :alternate_name, :placeholder => "got another name?" %> <span class="formhint">(optional, an alternate name)</span>
+<br>
+<%= f.text_field :city, :placeholder => "city" %>
+<br>
+<%= f.text_field :state, :placeholde => "state" %>
+<br>
+<%= f.text_field :country, :placeholder => "country", :required => true %> <span class="formhint">(required)</span>
+
+<p class="formhint">We <strong>do not ever</strong> display emails/phone on the web,
+   and we <strong>do not</strong> "share with partners".
+</p>
+
+<%= f.email_field :primary_email, :placeholder => "primary email", :required => true %> <span class="formhint">(required)</span>
+<br>
+<%= f.email_field :second_email, :placeholder => "second email" %>
+<br>
+<%= f.email_field :third_email, :placeholder => "third email" %>
+<br>
+<%= f.telephone_field :cell_phone_one, :placeholder => "cell phone one" %>
+<br>
+<%= f.telephone_field :cell_phone_one, :placeholder => "cell phone two" %>
+
+<p> Everything triple checked? When it's all good...
+</p>
+
+<%= f.submit :submit, :class => "bigsubmit", :value => "Register" %>
+
+<% end %>

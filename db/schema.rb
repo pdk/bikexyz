@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131201210615) do
+ActiveRecord::Schema.define(:version => 20131216005714) do
 
   create_table "bicycles", :force => true do |t|
     t.string   "lookup_code"
@@ -31,10 +31,39 @@ ActiveRecord::Schema.define(:version => 20131201210615) do
     t.datetime "updated_at",           :null => false
   end
 
-  create_table "lookup_codes", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "bike_regs", :force => true do |t|
+    t.string   "xyz_code",        :null => false
+    t.string   "serial_number"
+    t.string   "color"
+    t.string   "brand"
+    t.string   "model"
+    t.string   "kind"
+    t.string   "size"
+    t.integer  "number_of_gears"
+    t.text     "notes"
+    t.string   "name"
+    t.string   "alternate_name"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "primary_email"
+    t.string   "second_email"
+    t.string   "third_email"
+    t.string   "cell_phone_one"
+    t.string   "cell_phone_two"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
+
+  add_index "bike_regs", ["xyz_code"], :name => "index_bike_regs_on_xyz_code", :unique => true
+
+  create_table "lookup_codes", :force => true do |t|
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.string   "xyz_code",   :default => "***", :null => false
+  end
+
+  add_index "lookup_codes", ["xyz_code"], :name => "index_lookup_codes_on_xyz_code", :unique => true
 
   create_table "user_bicycles", :force => true do |t|
     t.integer  "user_id"

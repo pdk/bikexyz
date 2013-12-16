@@ -3,13 +3,25 @@
 }
 
 input, textarea, select {
-    font-family: "Courier New", Courier, monospace;
+/*    font-family: "Courier New", Courier, monospace;*/
     color: #060;
 }
 
-input, textarea {
-    font-weight: bold;
+.userdata {
+  color: #060;
 }
+
+.regcode {
+  background: #efe;
+  font-weight: bold;
+  border: 2px solid #060;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+/*input, textarea {
+    font-weight: bold;
+}*/
 
 .formhint {
     font-size: 75%;
