@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131216005714) do
+ActiveRecord::Schema.define(:version => 20131216131346) do
+
+  create_table "auth_keys", :force => true do |t|
+    t.string   "email",      :null => false
+    t.string   "key",        :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "bicycles", :force => true do |t|
     t.string   "lookup_code"

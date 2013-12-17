@@ -50,3 +50,14 @@ a.navlink:hover {
   background-color: #aaa;
   color: #060;
 }
+
+footer {
+  font-size: 80%;
+  border-top: 1px solid #999;
+  margin-top: 20px;
+}
+
+.verified_notice {
+  float: right;
+  font-size: 90%;
+}

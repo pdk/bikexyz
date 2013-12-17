@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <h1><span class="regcode">bikexyz.com/<%= @bike_reg.xyz_code %>
 </span></h1>
@@ -17,6 +16,8 @@ Registration created at <%= @bike_reg.created_at %> (<%= time_ago_in_words(@bike
   <br>
 <% end %>
 <br>
+
+<%= link_to "Edit this registration", edit_bike_reg_path(@bike_reg), :class => :navlink %>
 
 <h4>Registered To</h4>
 
@@ -76,11 +77,5 @@ Description/comments:
 <br>
 <% end %>
 
+<%= link_to "Edit this registration", edit_bike_reg_path(@bike_reg), :class => :navlink %>
 
-<br>
-<br>
-
-
-
-<%= link_to 'Edit', edit_bike_reg_path(@bike_reg) %> |
-<%= link_to 'Back', bike_regs_path %>

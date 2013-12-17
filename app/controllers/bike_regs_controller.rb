@@ -4,7 +4,7 @@ class BikeRegsController < ApplicationController
   # GET /bike_regs
   # GET /bike_regs.json
   def index
-    @bike_regs = BikeReg.all
+    @bike_regs = BikeReg.order("created_at desc").limit(100)
 
     respond_to do |format|
       format.html # index.html.erb

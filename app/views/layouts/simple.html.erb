@@ -19,7 +19,14 @@
   </head>
   <body>
 
-    <a href="/" class="navlink">New Registration</a>
+    <% if session[:email].present? %>
+      <div class="verified_notice">
+        Currently verified as "<%= session[:email] %>" <a class="navlink" href="<%= signout_path %>">sign out</a>
+      </div>
+    <% end %>
+    
+    <%= link_to "Register my bike", new_bike_reg_path, :class => :navlink %>
+    <%= link_to "View recent registrations", recent_bike_regs_path, :class => :navlink %>
     <a href="/" class="navlink">Search</a>
     <a href="/" class="navlink">About</a>
     <a href="/" class="navlink">FAQ</a>

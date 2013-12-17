@@ -10,6 +10,4 @@
   If you don't like this current code, <a href="<%= new_bike_reg_path %>">click here to get a new one</a>.
 </p>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', bike_regs_path %>
+<%= render 'form', :submit_label => "Save Registration" %>
