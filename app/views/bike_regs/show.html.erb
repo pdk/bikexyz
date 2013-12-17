@@ -1,23 +1,30 @@
 
-<h1><span class="regcode">bikexyz.com/<%= @bike_reg.xyz_code %>
-</span></h1>
+<h2>Viewing registration <%= @bike_reg.xyz_code %></h2>
 
+<p>
+<%= link_to "Edit this registration", edit_bike_reg_path(@bike_reg), :class => :navlink, :rel => 'nofollow' %>
+</p>
+
+<p>
 Registration created at <%= @bike_reg.created_at %> (<%= time_ago_in_words(@bike_reg.created_at) %> ago)
-<br>
 
 <% if @bike_reg.updated_at > @bike_reg.created_at %>
-  Last update at <%= @bike_reg.updated_at %> (<%= time_ago_in_words(@bike_reg.updated_at) %> ago)
   <br>
+  Last update at <%= @bike_reg.updated_at %> (<%= time_ago_in_words(@bike_reg.updated_at) %> ago)
 <% end %>
 
 <% rev_count = @bike_reg.versions.count %>
 <% if rev_count > 0 %>
-  Number of revisions since creation: <%= @bike_reg.versions.count %>
   <br>
+  Number of revisions since creation: <%= @bike_reg.versions.count %>
 <% end %>
-<br>
+</p>
 
-<%= link_to "Edit this registration", edit_bike_reg_path(@bike_reg), :class => :navlink %>
+<h4>Registration Address</h4>
+
+<p>
+<span class="regcode">bikexyz.com/<%= @bike_reg.xyz_code %></span>
+</p>
 
 <h4>Registered To</h4>
 
@@ -77,5 +84,6 @@ Description/comments:
 <br>
 <% end %>
 
-<%= link_to "Edit this registration", edit_bike_reg_path(@bike_reg), :class => :navlink %>
-
+<p>
+<%= link_to "Edit this registration", edit_bike_reg_path(@bike_reg), :class => :navlink, :rel => 'nofollow' %>
+</p>

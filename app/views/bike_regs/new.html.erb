@@ -1,13 +1,15 @@
 
-<% @bike_reg.xyz_code = LookupCode.next_code.xyz_code %>
-<h1><span class="regcode">bikexyz.com/<%= @bike_reg.xyz_code %>
-</span></h1>
+<h2>Register my bike</h2>
 
-<p class="formhint">
-  IMPORTANT:
+<% @bike_reg.xyz_code = LookupCode.next_code.xyz_code %>
+<p><span class="regcode">bikexyz.com/<%= @bike_reg.xyz_code %></span>
+</p>
+
+<p>
+  <strong>IMPORTANT</strong>
   After registering your bike, you will need to <strong>permanently</strong>
-  inscribe/paint/print this URL onto your bike.
-  If you don't like this current code, <a href="<%= new_bike_reg_path %>">click here to get a new one</a>.
+  mark your bike with "bikexyz.com/<%= @bike_reg.xyz_code %>".
+  If you don't like this code, <a href="<%= new_bike_reg_path %>">click here to get a new one</a>.
 </p>
 
 <%= render 'form', :submit_label => "Save Registration" %>

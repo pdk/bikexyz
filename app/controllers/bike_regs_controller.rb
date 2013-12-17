@@ -16,7 +16,7 @@ class BikeRegsController < ApplicationController
   # GET /bike_regs/1.json
   def show
     @bike_reg = BikeReg.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @bike_reg }

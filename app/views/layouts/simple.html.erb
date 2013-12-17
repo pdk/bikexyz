@@ -25,15 +25,22 @@
       </div>
     <% end %>
     
-    <%= link_to "Register my bike", new_bike_reg_path, :class => :navlink %>
-    <%= link_to "View recent registrations", recent_bike_regs_path, :class => :navlink %>
-    <a href="/" class="navlink">Search</a>
-    <a href="/" class="navlink">About</a>
-    <a href="/" class="navlink">FAQ</a>
-
+    <header>
+      <%= link_to "Register my bike", new_bike_reg_path, :class => :navlink %>
+      <%= link_to "View recent registrations", recent_bike_regs_path, :class => :navlink %>
+      <a href="/" class="navlink">Search</a>
+      <a href="/" class="navlink">About</a>
+      <a href="/" class="navlink">FAQ</a>
+    </header>
+    
     <!-- <h2><%= content_for?(:title) ? yield(:title) : SITE_TITLE %></h2> -->
 
-    <%= bootstrap_flash %>
+    <% flash.each do |name, msg| %>
+      <% if msg.is_a?(String) %>
+        <%= content_tag :div, msg, :class => "flash_#{name}" %>
+      <% end %>
+    <% end %>
+
     <%= yield %>
 
     <footer>
