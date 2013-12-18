@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
+  layout "simple"
+  
   def index
-  end
-
-  def contact
   end
 end

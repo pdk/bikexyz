@@ -77,3 +77,8 @@ header {
   font-weight: bold;
   color: #0c0;
 }
+
+.maincontent {
+  margin-left: 3%;
+  margin-right: 3%;
+}

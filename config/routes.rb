@@ -13,6 +13,10 @@ Bikexyz::Application.routes.draw do
   devise_for :users, path_names: { sign_in: "login", sign_out: "logout", sign_up: "new-account" }
 
   get "pages/contact", :as => 'contact_page'
+  get 'faq', :to => 'pages#faq', :as => :faq
+  get 'search', :to => 'pages#search', :as => :search
+  get 'about', :to => 'pages#about', :as => :about
+  get 'contact', :to => 'pages#contact', :as => :contact
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

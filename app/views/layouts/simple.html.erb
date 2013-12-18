@@ -21,19 +21,20 @@
 
     <% if session[:email].present? %>
       <div class="verified_notice">
-        Currently verified as "<%= session[:email] %>" <a class="navlink" href="<%= signout_path %>">sign out</a>
+        <span class="userdata"><%= session[:email] %></span> <a class="navlink" href="<%= signout_path %>">sign out</a>
       </div>
     <% end %>
     
     <header>
-      <%= link_to "Register my bike", new_bike_reg_path, :class => :navlink %>
-      <%= link_to "View recent registrations", recent_bike_regs_path, :class => :navlink %>
+      <%= link_to "Home", root_path, :class => :navlink %>
+      <%= link_to "About", about_path, :class => :navlink %>
+      <%= link_to "Register", new_bike_reg_path, :class => :navlink %>
+      <%= link_to "Recent", recent_bike_regs_path, :class => :navlink %>
       <% if session[:email].present? %>
-        <%= link_to "My registration(s)", my_bike_regs_path, :class => :navlink %>
+        <%= link_to "Mine", my_bike_regs_path, :class => :navlink %>
       <% end %>
-      <a href="/" class="navlink">Search</a>
-      <a href="/" class="navlink">About</a>
-      <a href="/" class="navlink">FAQ</a>
+      <%= link_to "Search", search_path, :class => :navlink %>
+      <%= link_to "FAQ", faq_path, :class => :navlink %>
     </header>
     
     <!-- <h2><%= content_for?(:title) ? yield(:title) : SITE_TITLE %></h2> -->
@@ -44,7 +45,9 @@
       <% end %>
     <% end %>
 
+    <div class="maincontent">
     <%= yield %>
+    </div>
 
     <footer>
       <p>&copy; bikexyz.com 2013</p>

@@ -115,6 +115,7 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redcarpet (2.3.0)
     ref (1.0.5)
     rest-client (1.6.7)
       mime-types (>= 1.16)
@@ -173,6 +174,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.13)
   rails_12factor
+  redcarpet
   sass-rails (~> 3.2.3)
   simple_form
   therubyracer

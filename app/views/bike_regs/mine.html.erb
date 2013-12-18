@@ -1,5 +1,7 @@
-<h1>My bicycle registration(s)</h1>
+<h1>My bicycle registrations</h1>
 
+<p>You have <%= @bike_regs.size %> bicycles registered.</p>
+  
 <ul>
 <% @bike_regs.each do |bike_reg| %>
 <li> <%= link_to bike_reg.xyz_code, bike_reg %> <%= bike_reg.color %> <%= bike_reg.brand %> </li>
