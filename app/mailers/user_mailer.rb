@@ -9,6 +9,6 @@ class UserMailer < ActionMailer::Base
   def auth(email)
     @auth = AuthKey.create!(:email => email)
 
-    mail to: email, :subject => "user verification"
+    mail to: email, :subject => "identity verification"
   end
 end

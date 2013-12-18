@@ -17,5 +17,12 @@ class BikeReg < ActiveRecord::Base
     options[:except] ||= @@secure_fields
     super(options)
   end
-  
+
+  def authorized?(email)
+    if email.blank?
+      return false
+    end
+    
+    [primary_email.downcase, second_email.downcase, third_email.downcase].include? email.downcase
+  end
 end

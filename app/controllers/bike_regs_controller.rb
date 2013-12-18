@@ -5,12 +5,28 @@ class BikeRegsController < ApplicationController
   # GET /bike_regs.json
   def index
     @bike_regs = BikeReg.order("created_at desc").limit(100)
+    @user_bike_regs = nil
+    
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @bike_regs }
     end
   end
+  
+  def mine
+    @user_email = session[:email]
+    
+    if @user_email.blank?
+      redirect_to :bike_regs
+    else
+      @bike_regs = BikeReg.where("? in (primary_email, second_email, third_email)", @user_email)
+      if @bike_regs.size == 1
+        redirect_to bike_reg_path(@bike_regs[0])
+        return
+      end
+    end
+  end    
 
   # GET /bike_regs/1
   # GET /bike_regs/1.json
@@ -37,6 +53,11 @@ class BikeRegsController < ApplicationController
   # GET /bike_regs/1/edit
   def edit
     @bike_reg = BikeReg.find(params[:id])
+    
+    if not @bike_reg.authorized? session[:email]
+      redirect_to send_verify_email_path(@bike_reg.xyz_code)
+      return
+    end
   end
 
   # POST /bike_regs
@@ -60,6 +81,11 @@ class BikeRegsController < ApplicationController
   def update
     @bike_reg = BikeReg.find(params[:id])
 
+    if not @bike_reg.authorized? session[:email]
+      redirect_to send_verify_email_path(@bike_reg.xyz_code)
+      return
+    end
+
     respond_to do |format|
       if @bike_reg.update_attributes(params[:bike_reg])
         format.html { redirect_to @bike_reg, notice: 'Bike reg was successfully updated.' }
@@ -68,18 +94,6 @@ class BikeRegsController < ApplicationController
         format.html { render action: "edit" }
         format.json { render json: @bike_reg.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /bike_regs/1
-  # DELETE /bike_regs/1.json
-  def destroy
-    @bike_reg = BikeReg.find(params[:id])
-    @bike_reg.destroy
-
-    respond_to do |format|
-      format.html { redirect_to bike_regs_url }
-      format.json { head :no_content }
     end
   end
 end

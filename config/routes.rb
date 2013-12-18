@@ -2,11 +2,13 @@ Bikexyz::Application.routes.draw do
 
   get "verify/:auth_id/:auth_key", :to => 'verify#index', :as => :verify
   get "verify/signout", :to => 'verify#signout', :as => :signout
+  get "verify/:xyz_code(/:which_email)", :to => 'verify#send_email', :as => :send_verify_email
 
   resources :bicycles
   resources :bike_regs
 
   get "recent", :to => 'bike_regs#index', :as => :recent_bike_regs
+  get "mine", :to => 'bike_regs#mine', :as => :my_bike_regs
 
   devise_for :users, path_names: { sign_in: "login", sign_out: "logout", sign_up: "new-account" }
 

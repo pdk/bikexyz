@@ -28,6 +28,9 @@
     <header>
       <%= link_to "Register my bike", new_bike_reg_path, :class => :navlink %>
       <%= link_to "View recent registrations", recent_bike_regs_path, :class => :navlink %>
+      <% if session[:email].present? %>
+        <%= link_to "My registration(s)", my_bike_regs_path, :class => :navlink %>
+      <% end %>
       <a href="/" class="navlink">Search</a>
       <a href="/" class="navlink">About</a>
       <a href="/" class="navlink">FAQ</a>

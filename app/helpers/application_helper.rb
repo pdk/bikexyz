@@ -7,4 +7,14 @@ module ApplicationHelper
       x
     end
   end
+  
+  def hide_email(email)
+    ebits = email.split("@")
+    if ebits.size != 2
+      "**emailaddrparseerr**"
+    else
+      l1 = email[0]
+      "#{l1}...@#{ebits[1]}"
+    end
+  end
 end

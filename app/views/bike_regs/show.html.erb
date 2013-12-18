@@ -2,10 +2,6 @@
 <h2>Viewing registration <%= @bike_reg.xyz_code %></h2>
 
 <p>
-<%= link_to "Edit this registration", edit_bike_reg_path(@bike_reg), :class => :navlink, :rel => 'nofollow' %>
-</p>
-
-<p>
 Registration created at <%= @bike_reg.created_at %> (<%= time_ago_in_words(@bike_reg.created_at) %> ago)
 
 <% if @bike_reg.updated_at > @bike_reg.created_at %>
@@ -18,6 +14,10 @@ Registration created at <%= @bike_reg.created_at %> (<%= time_ago_in_words(@bike
   <br>
   Number of revisions since creation: <%= @bike_reg.versions.count %>
 <% end %>
+</p>
+
+<p>
+  <%= button_to 'Edit this registration', edit_bike_reg_path(@bike_reg), :class => "bigsubmit", :method => :get %>
 </p>
 
 <h4>Registration Address</h4>
@@ -85,5 +85,5 @@ Description/comments:
 <% end %>
 
 <p>
-<%= link_to "Edit this registration", edit_bike_reg_path(@bike_reg), :class => :navlink, :rel => 'nofollow' %>
+  <%= button_to 'Edit this registration', edit_bike_reg_path(@bike_reg), :class => "bigsubmit", :method => :get %>
 </p>
