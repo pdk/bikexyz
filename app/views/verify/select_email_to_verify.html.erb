@@ -1,0 +1,27 @@
+<h2>Identify Verification</h2>
+
+
+<p> Before you're allowed to edit a registration or upload photos, you must
+  verify your identity via email.
+</p>
+
+<p><strong>Authorized emails for this registration</strong></p>
+
+<ul>
+  <% if @bike_reg.primary_email.present? %>
+    <li> <%= hide_email @bike_reg.primary_email %> </li>
+  <% end %>
+  <% if @bike_reg.second_email.present? %>
+    <li> <%= hide_email @bike_reg.second_email %> </li>
+  <% end %>
+  <% if @bike_reg.third_email.present? %>
+    <li> <%= hide_email @bike_reg.third_email %> </li>
+  <% end %>
+</ul>
+
+<p> Enter the complete email address to verify: </p>
+
+<form action="" method="post">
+<%= email_field_tag :email, nil, :required => true, :autofocus => true %>
+<%= submit_tag "Send Verification Email" %>
+</form>

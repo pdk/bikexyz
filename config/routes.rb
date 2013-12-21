@@ -2,7 +2,7 @@ Bikexyz::Application.routes.draw do
 
   get "verify/:auth_id/:auth_key", :to => 'verify#index', :as => :verify
   get "verify/signout", :to => 'verify#signout', :as => :signout
-  get "verify/:xyz_code(/:which_email)", :to => 'verify#send_email', :as => :send_verify_email
+  match "verify/:xyz_code", :to => 'verify#send_email', :as => :send_verify_email, :via => [:get, :post]
 
   devise_for :users, path_names: { sign_in: "login", sign_out: "logout", sign_up: "new-account" }
 

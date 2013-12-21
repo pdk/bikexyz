@@ -21,30 +21,35 @@ class VerifyController < ApplicationController
   
   def send_email
     @xyz_code = params[:xyz_code]
-    @which_email = params[:which_email].try(:to_sym)
-    
+    @email = params[:email]
+
     @bike_reg = BikeReg.where(:xyz_code => @xyz_code).first
-    if not [:primary_email, :second_email, :third_email].include? @which_email
-      @which_email = nil
-    end
-
-    @sent_email = nil
-    
     if @bike_reg.blank?
-      render :send_email_no_reg
-      return
-    elsif @which_email.present? and @bike_reg.read_attribute(@which_email).present?
-      @sent_email = @bike_reg.read_attribute(@which_email)
-    elsif @bike_reg.present? && @bike_reg.second_email.blank? and @bike_reg.third_email.blank?
-      @sent_email = @bike_reg.primary_email
-    end
-
-    if @sent_email.present?
-      UserMailer.auth(@sent_email).deliver
-      render :send_email_sent
+      redirect_to root_path 
       return
     end
     
-    render :select_email_to_verify
+    if @email.present?
+      if @bike_reg.authorized? @email
+        
+        if AuthKey.too_recent?(@email)
+          flash[:alert] = "We very recently sent a verification email to that address. Please check your inbox and junk folder(s)."
+          render :select_email_to_verify
+          return
+        end
+        
+        UserMailer.auth(@email).deliver
+        render :send_email_sent
+        return
+      else
+        flash[:alert] = "Sorry, that not right."
+        render :select_email_to_verify
+        return
+      end
+    else
+      # no email given yet
+      render :select_email_to_verify
+      return
+    end
   end
 end
