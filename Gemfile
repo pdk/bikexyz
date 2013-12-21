@@ -52,5 +52,7 @@ gem 'simple_form'
 gem 'paper_trail'
 gem 'awesome_print'
 gem 'factory_girl_rails'
+
+gem 'carrierwave'
 gem 'cloudinary'
 gem 'redcarpet'

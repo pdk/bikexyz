@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131216131346) do
+ActiveRecord::Schema.define(:version => 20131221060844) do
 
   create_table "auth_keys", :force => true do |t|
     t.string   "email",      :null => false
@@ -60,6 +60,12 @@ ActiveRecord::Schema.define(:version => 20131216131346) do
     t.string   "cell_phone_two"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "photo_1"
+    t.string   "photo_2"
+    t.string   "photo_3"
+    t.string   "photo_4"
+    t.string   "photo_5"
+    t.string   "photo_6"
   end
 
   add_index "bike_regs", ["xyz_code"], :name => "index_bike_regs_on_xyz_code", :unique => true

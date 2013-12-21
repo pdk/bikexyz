@@ -4,6 +4,26 @@
 
 <%= render 'form', :f => f %>
 
+<h3>Photos</h3>
+
+<%= f.hidden_field(:photo_1_cache) %>
+<%= f.file_field :photo_1 %>
+
+<%= f.hidden_field(:photo_2_cache) %>
+<%= f.file_field :photo_2 %>
+
+<%= f.hidden_field(:photo_3_cache) %>
+<%= f.file_field :photo_3 %>
+
+<%= f.hidden_field(:photo_4_cache) %>
+<%= f.file_field :photo_4 %>
+
+<%= f.hidden_field(:photo_5_cache) %>
+<%= f.file_field :photo_5 %>
+
+<%= f.hidden_field(:photo_6_cache) %>
+<%= f.file_field :photo_6 %>
+
 <p>Remember we keep a record of every change. Please check everything carefully, and then ...</p>
 
 <%= f.submit :submit, :class => "bigsubmit", :value => "Save Changes" %>

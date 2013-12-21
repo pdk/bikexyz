@@ -57,6 +57,7 @@ footer {
   font-size: 80%;
   border-top: 1px solid #999;
   margin-top: 20px;
+  clear: both;
 }
 
 header {
@@ -81,4 +82,17 @@ header {
 .maincontent {
   margin-left: 3%;
   margin-right: 3%;
+}
+
+#show-reg {
+  width: 100%;
+}
+
+#reg-text {
+  float: left;
+}
+
+#reg-photos {
+  width: 310px;
+  float: right;
 }

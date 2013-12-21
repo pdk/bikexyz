@@ -1,5 +1,8 @@
+<div id="show-reg">
 
 <h2>Viewing registration <%= @bike_reg.xyz_code %></h2>
+
+<div id="reg-text">
 
 <p>
 Registration created at <%= @bike_reg.created_at %> (<%= time_ago_in_words(@bike_reg.created_at) %> ago)
@@ -87,3 +90,35 @@ Description/comments:
 <p>
   <%= button_to 'Edit this registration', edit_bike_reg_path(@bike_reg.xyz_code), :class => "bigsubmit", :method => :get %>
 </p>
+
+</div>
+
+<div id="reg-photos">  
+  
+  <% if @bike_reg.photo_1.present? %>
+    <%= link_to image_tag(@bike_reg.photo_1_url(:small_square)), @bike_reg.photo_1_url(:large) %>
+  <% end %>
+  
+  <% if @bike_reg.photo_2.present? %>
+    <%= link_to image_tag(@bike_reg.photo_2_url(:small_square)), @bike_reg.photo_2_url(:large) %>
+  <% end %>
+  
+  <% if @bike_reg.photo_3.present? %>
+    <%= link_to image_tag(@bike_reg.photo_3_url(:small_square)), @bike_reg.photo_3_url(:large) %>
+  <% end %>
+  
+  <% if @bike_reg.photo_4.present? %>
+    <%= link_to image_tag(@bike_reg.photo_4_url(:small_square)), @bike_reg.photo_4_url(:large) %>
+  <% end %>
+  
+  <% if @bike_reg.photo_5.present? %>
+    <%= link_to image_tag(@bike_reg.photo_5_url(:small_square)), @bike_reg.photo_5_url(:large) %>
+  <% end %>
+  
+  <% if @bike_reg.photo_6.present? %>
+    <%= link_to image_tag(@bike_reg.photo_6_url(:small_square)), @bike_reg.photo_6_url(:large) %>
+  <% end %>
+  
+</div>
+
+</div>

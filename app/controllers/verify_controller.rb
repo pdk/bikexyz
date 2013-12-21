@@ -33,7 +33,7 @@ class VerifyController < ApplicationController
       if @bike_reg.authorized? @email
         
         if AuthKey.too_recent?(@email)
-          flash[:alert] = "We very recently sent a verification email to that address. Please check your inbox and junk folder(s)."
+          flash.now[:alert] = "We very recently sent a verification email to that address. Please check your inbox and junk folder(s)."
           render :select_email_to_verify
           return
         end
@@ -42,7 +42,7 @@ class VerifyController < ApplicationController
         render :send_email_sent
         return
       else
-        flash[:alert] = "Sorry, that not right."
+        flash.now[:alert] = "Sorry, that not right."
         render :select_email_to_verify
         return
       end

@@ -35,6 +35,9 @@ GEM
     bcrypt-ruby (3.1.2)
     builder (3.0.4)
     cancan (1.6.10)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
     cloudinary (1.0.66)
       aws_cf_signer
       rest-client
@@ -164,6 +167,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   cancan
+  carrierwave
   cloudinary
   coffee-rails (~> 3.2.1)
   devise
