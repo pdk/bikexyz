@@ -7,7 +7,7 @@ class BikeRegPhotoUploader < CarrierWave::Uploader::Base
   process :tags => ['bike-reg-photo']
   
   version :large do
-    cloudinary_transformation :width => 1000, :height => 1000, :crop => :fit
+    cloudinary_transformation :width => 1000, :height => 800, :crop => :fit
   end
   
   version :medium do
@@ -20,6 +20,10 @@ class BikeRegPhotoUploader < CarrierWave::Uploader::Base
 
   version :small_square do
     cloudinary_transformation :width => 150, :height => 150, :crop => :fill, :gravity => :face
+  end
+
+  version :thumb_square do
+    cloudinary_transformation :width => 75, :height => 75, :crop => :fill, :gravity => :face
   end
 
 end

@@ -24,6 +24,8 @@ Bikexyz::Application.routes.draw do
   get ':xyz_code(.:format)', :to => 'bike_regs#show', :as => :bike_reg
   #                  PUT    /bike_regs/:id(.:format)                   bike_regs#update
   put ':xyz_code', :to => 'bike_regs#update', :as => :update_bike_reg
+  
+  get ':xyz_code/photo/:photo_number', :to => 'bike_regs#photo', :as => :bike_reg_photo
 
 
   # The priority is based upon order of creation:

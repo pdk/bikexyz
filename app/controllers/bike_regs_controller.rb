@@ -28,6 +28,28 @@ class BikeRegsController < ApplicationController
     end
   end    
 
+  def photo
+    @xyz_code = LookupCode.disambiguate(params[:xyz_code])
+    @photo_number = params[:photo_number].to_i
+
+    @bike_reg = BikeReg.find_by_xyz_code(@xyz_code)
+    
+    @photo_url   = (@photo_number == 1) && (@bike_reg.photo_1_url(:large))
+    @photo_url ||= (@photo_number == 2) && (@bike_reg.photo_2_url(:large))
+    @photo_url ||= (@photo_number == 3) && (@bike_reg.photo_3_url(:large))
+    @photo_url ||= (@photo_number == 4) && (@bike_reg.photo_4_url(:large))
+    @photo_url ||= (@photo_number == 5) && (@bike_reg.photo_5_url(:large))
+    @photo_url ||= (@photo_number == 6) && (@bike_reg.photo_6_url(:large))
+
+    @next_page_url =   (@photo_number <= 1) && (@bike_reg.photo_2.present?) && bike_reg_photo_path(@xyz_code, 2)
+    @next_page_url ||= (@photo_number <= 2) && (@bike_reg.photo_3.present?) && bike_reg_photo_path(@xyz_code, 3)
+    @next_page_url ||= (@photo_number <= 3) && (@bike_reg.photo_4.present?) && bike_reg_photo_path(@xyz_code, 4)
+    @next_page_url ||= (@photo_number <= 4) && (@bike_reg.photo_5.present?) && bike_reg_photo_path(@xyz_code, 5)
+    @next_page_url ||= (@photo_number <= 5) && (@bike_reg.photo_6.present?) && bike_reg_photo_path(@xyz_code, 6)
+    @next_page_url ||= (@photo_number <= 6) && bike_reg_path(@xyz_code)
+    
+  end
+
   def show
     @xyz_code = LookupCode.disambiguate(params[:xyz_code])
     if @xyz_code != params[:xyz_code]
