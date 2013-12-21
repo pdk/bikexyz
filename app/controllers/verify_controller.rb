@@ -40,7 +40,7 @@ class VerifyController < ApplicationController
     end
 
     if @sent_email.present?
-      UserMailer.auth(@sent_email)
+      UserMailer.auth(@sent_email).deliver
       render :send_email_sent
       return
     end

@@ -8,9 +8,7 @@ class UserMailer < ActionMailer::Base
   #
   def auth(email)
     @auth = AuthKey.create!(:email => email)
-
-    p "http://www.bikexyz.com#{ verify_path @auth.id, @auth.key }"
     
-    mail to: email, :subject => "identity verification"
+    mail to: email, :subject => "bikexyz.com identity verification"
   end
 end
