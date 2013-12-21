@@ -4,19 +4,27 @@ Bikexyz::Application.routes.draw do
   get "verify/signout", :to => 'verify#signout', :as => :signout
   get "verify/:xyz_code(/:which_email)", :to => 'verify#send_email', :as => :send_verify_email
 
-  resources :bicycles
-  resources :bike_regs
-
-  get "recent", :to => 'bike_regs#index', :as => :recent_bike_regs
-  get "mine", :to => 'bike_regs#mine', :as => :my_bike_regs
-
   devise_for :users, path_names: { sign_in: "login", sign_out: "logout", sign_up: "new-account" }
 
-  get "pages/contact", :as => 'contact_page'
   get 'faq', :to => 'pages#faq', :as => :faq
   get 'search', :to => 'pages#search', :as => :search
   get 'about', :to => 'pages#about', :as => :about
   get 'contact', :to => 'pages#contact', :as => :contact
+
+  #        bike_regs GET    /bike_regs(.:format)                       bike_regs#index
+  get "recent", :to => 'bike_regs#index', :as => :recent_bike_regs
+  get "mine", :to => 'bike_regs#mine', :as => :my_bike_regs
+  #                  POST   /bike_regs(.:format)                       bike_regs#create
+  post 'register', :to => 'bike_regs#create', :as => :create_bike_reg
+  #     new_bike_reg GET    /bike_regs/new(.:format)                   bike_regs#new
+  get 'register', :to => 'bike_regs#new', :as => :new_bike_reg
+  #    edit_bike_reg GET    /bike_regs/:id/edit(.:format)              bike_regs#edit
+  get ':xyz_code/edit', :to => 'bike_regs#edit', :as => :edit_bike_reg
+  #         bike_reg GET    /bike_regs/:id(.:format)                   bike_regs#show
+  get ':xyz_code(.:format)', :to => 'bike_regs#show', :as => :bike_reg
+  #                  PUT    /bike_regs/:id(.:format)                   bike_regs#update
+  put ':xyz_code', :to => 'bike_regs#update', :as => :update_bike_reg
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

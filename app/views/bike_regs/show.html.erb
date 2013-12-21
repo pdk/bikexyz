@@ -17,7 +17,7 @@ Registration created at <%= @bike_reg.created_at %> (<%= time_ago_in_words(@bike
 </p>
 
 <p>
-  <%= button_to 'Edit this registration', edit_bike_reg_path(@bike_reg), :class => "bigsubmit", :method => :get %>
+  <%= button_to 'Edit this registration', edit_bike_reg_path(@bike_reg.xyz_code), :class => "bigsubmit", :method => :get %>
 </p>
 
 <h4>Registration Address</h4>
@@ -85,5 +85,5 @@ Description/comments:
 <% end %>
 
 <p>
-  <%= button_to 'Edit this registration', edit_bike_reg_path(@bike_reg), :class => "bigsubmit", :method => :get %>
+  <%= button_to 'Edit this registration', edit_bike_reg_path(@bike_reg.xyz_code), :class => "bigsubmit", :method => :get %>
 </p>

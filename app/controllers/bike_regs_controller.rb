@@ -28,10 +28,13 @@ class BikeRegsController < ApplicationController
     end
   end    
 
-  # GET /bike_regs/1
-  # GET /bike_regs/1.json
   def show
-    @bike_reg = BikeReg.find(params[:id])
+    @xyz_code = LookupCode.disambiguate(params[:xyz_code])
+    if @xyz_code != params[:xyz_code]
+      redirect_to bike_reg_path(@xyz_code)
+      return
+    end
+    @bike_reg = BikeReg.find_by_xyz_code(@xyz_code)
     
     respond_to do |format|
       format.html # show.html.erb
@@ -52,7 +55,7 @@ class BikeRegsController < ApplicationController
 
   # GET /bike_regs/1/edit
   def edit
-    @bike_reg = BikeReg.find(params[:id])
+    @bike_reg = BikeReg.find_by_xyz_code(params[:xyz_code])
     
     if not @bike_reg.authorized? session[:email]
       redirect_to send_verify_email_path(@bike_reg.xyz_code)
@@ -67,7 +70,7 @@ class BikeRegsController < ApplicationController
 
     respond_to do |format|
       if @bike_reg.save
-        format.html { redirect_to @bike_reg, notice: 'Bike reg was successfully created.' }
+        format.html { redirect_to bike_reg_path(@bike_reg.xyz_code), notice: 'Bike reg was successfully created.' }
         format.json { render json: @bike_reg, status: :created, location: @bike_reg }
       else
         format.html { render action: "new" }
@@ -79,7 +82,7 @@ class BikeRegsController < ApplicationController
   # PUT /bike_regs/1
   # PUT /bike_regs/1.json
   def update
-    @bike_reg = BikeReg.find(params[:id])
+    @bike_reg = BikeReg.find_by_xyz_code(params[:xyz_code])
 
     if not @bike_reg.authorized? session[:email]
       redirect_to send_verify_email_path(@bike_reg.xyz_code)
@@ -88,7 +91,7 @@ class BikeRegsController < ApplicationController
 
     respond_to do |format|
       if @bike_reg.update_attributes(params[:bike_reg])
-        format.html { redirect_to @bike_reg, notice: 'Bike reg was successfully updated.' }
+        format.html { redirect_to bike_reg_path(@bike_reg.xyz_code), notice: 'Bike reg was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

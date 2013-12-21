@@ -1,4 +1,12 @@
 <h1>Editing bike_reg</h1>
 
-<%= render 'form', :submit_label => "Save Changes" %>
+<%= form_for(@bike_reg, :url => update_bike_reg_path(@bike_reg.xyz_code), :html => { :action => :post }) do |f| %>
+
+<%= render 'form', :f => f %>
+
+<p>Remember we keep a record of every change. Please check everything carefully, and then ...</p>
+
+<%= f.submit :submit, :class => "bigsubmit", :value => "Save Changes" %>
+
+<% end %>
 

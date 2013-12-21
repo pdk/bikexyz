@@ -12,4 +12,15 @@
   If you don't like this code, <a href="<%= new_bike_reg_path %>">click here to get a new one</a>.
 </p>
 
-<%= render 'form', :submit_label => "Save Registration" %>
+<%= form_for(@bike_reg, :url => create_bike_reg_path, :html => { :action => :post }) do |f| %>
+
+<%= f.hidden_field :xyz_code %>
+
+<%= render 'form', :f => f %>
+
+<p> Everything triple checked? When it's all good...
+</p>
+
+<%= f.submit :submit, :class => "bigsubmit", :value => "Save Registration" %>
+
+<% end %>

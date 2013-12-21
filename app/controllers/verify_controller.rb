@@ -9,7 +9,7 @@ class VerifyController < ApplicationController
     if @auth_key.present?
       # VERIFIED
       session[:email] = @auth_key.email
-      redirect_to bike_regs_path
+      redirect_to my_bike_regs_path
     end
     
     # fall thru and deliver the "you're not verified" page

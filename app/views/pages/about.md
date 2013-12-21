@@ -43,10 +43,10 @@ I've created bikexyz.com to provide this service.
 
 ### About Patrick
  
-Patrick began his internet-based career in 1993.
-Partners Patrick, Paul and John founded Kuentos Communications, Inc. to bring 
-the internet to Guam. When we told people
-"we sell internet access" the response was "what's 'internet'?"
+Patrick began his internet career in 1993.
+He, along with partners Paul and John, founded Kuentos Communications to bring 
+the internet to Guam. When potential customers were told
+"We sell internet access!" the response was "What's 'internet'?"
 Kuentos was acquired by [MCV](http://www.mcvguam.com).
 
 Later Patrick helped build GetActive.com, an on-line advocacy and fundraising platform 
