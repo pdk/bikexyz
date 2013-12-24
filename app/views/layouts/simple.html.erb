@@ -15,6 +15,12 @@
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
     <%= stylesheet_link_tag "simple", :media => "all" %>
+
+    <% if include_sharethis? %>
+      <script type="text/javascript">var switchTo5x=false;</script>
+      <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+      <script type="text/javascript">stLight.options({publisher: "6e75bd0e-28ed-4a07-98ab-162cbe03f172", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>        
+    <% end %>
     
   </head>
   <body>
@@ -46,6 +52,29 @@
     <% end %>
 
     <div class="maincontent">
+      <% if include_sharethis? %>
+        <div class="float-right">
+          <% # setup share this data bits
+            st_url = ""
+            st_title = ""
+            st_image = ""
+            st_summary = ""
+
+            if @bike_reg.present?
+              st_url = "http://bikexyz.com/#{@bike_reg.xyz_code}"
+              st_title = "I registered my bicycle bikexyz.com/#{@bike_reg.xyz_code}"
+              st_image = @bike_reg.photo_1_url(:medium)
+              st_summary = "Free bicycle registration that anybody can verify."
+            end
+          %>
+        
+          <span class='st_facebook'   st_url="<%= st_url %>" st_title="<%= st_title %>" st_image="<%= st_image %>" st_summary="<%= st_summary %>" x-displayText='Facebook'></span>
+          <span class='st_twitter'    st_url="<%= st_url %>" st_title="<%= st_title %>" st_image="<%= st_image %>" st_summary="<%= st_summary %>" x-displayText='Tweet' st_via='BikexyzDotCom'></span>
+          <span class='st_googleplus' st_url="<%= st_url %>" st_title="<%= st_title %>" st_image="<%= st_image %>" st_summary="<%= st_summary %>" x-displayText='Google +'></span>
+          <span class='st_tumblr'     st_url="<%= st_url %>" st_title="<%= st_title %>" st_image="<%= st_image %>" st_summary="<%= st_summary %>" x-displayText='Tumblr'></span>
+          <span class='st_sharethis'  st_url="<%= st_url %>" st_title="<%= st_title %>" st_image="<%= st_image %>" st_summary="<%= st_summary %>" x-displayText='ShareThis'></span>
+        </div>
+      <% end %>
     <%= yield %>
     </div>
 

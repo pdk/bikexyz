@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
     flash.now[:alert] = exception.message
     render "pages/gologin"
   end
+
+  def do_sharethis(doit = true)
+    @include_sharethis = doit
+  end
 end

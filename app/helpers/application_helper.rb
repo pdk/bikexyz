@@ -17,4 +17,8 @@ module ApplicationHelper
       "#{l1}...@#{ebits[1]}"
     end
   end
+  
+  def include_sharethis?
+    return @include_sharethis || false
+  end
 end

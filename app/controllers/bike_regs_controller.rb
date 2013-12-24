@@ -51,6 +51,7 @@ class BikeRegsController < ApplicationController
   end
 
   def show
+    do_sharethis
     @xyz_code = LookupCode.disambiguate(params[:xyz_code])
     if @xyz_code != params[:xyz_code]
       redirect_to bike_reg_path(@xyz_code)
