@@ -61,6 +61,10 @@ Color: <span class="userdata"><%= @bike_reg.color %></span> <br>
 Brand: <span class="userdata"><%= @bike_reg.brand %></span> <br>
 <% end %>
 
+<% if @bike_reg.year.present? %>
+Year: <span class="userdata"><%= @bike_reg.year %></span> <br>
+<% end %>
+
 <% if @bike_reg.model.present? %>
 Model: <span class="userdata"><%= @bike_reg.model %></span> <br>
 <% end %>

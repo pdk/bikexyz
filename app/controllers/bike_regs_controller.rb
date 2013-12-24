@@ -34,12 +34,12 @@ class BikeRegsController < ApplicationController
 
     @bike_reg = BikeReg.find_by_xyz_code(@xyz_code)
     
-    @photo_url   = (@photo_number == 1) && (@bike_reg.photo_1_url(:large))
-    @photo_url ||= (@photo_number == 2) && (@bike_reg.photo_2_url(:large))
-    @photo_url ||= (@photo_number == 3) && (@bike_reg.photo_3_url(:large))
-    @photo_url ||= (@photo_number == 4) && (@bike_reg.photo_4_url(:large))
-    @photo_url ||= (@photo_number == 5) && (@bike_reg.photo_5_url(:large))
-    @photo_url ||= (@photo_number == 6) && (@bike_reg.photo_6_url(:large))
+    @photo_url   = (@photo_number == 1) && (@bike_reg.photo_1_url(:medium))
+    @photo_url ||= (@photo_number == 2) && (@bike_reg.photo_2_url(:medium))
+    @photo_url ||= (@photo_number == 3) && (@bike_reg.photo_3_url(:medium))
+    @photo_url ||= (@photo_number == 4) && (@bike_reg.photo_4_url(:medium))
+    @photo_url ||= (@photo_number == 5) && (@bike_reg.photo_5_url(:medium))
+    @photo_url ||= (@photo_number == 6) && (@bike_reg.photo_6_url(:medium))
 
     @next_page_url =   (@photo_number <= 1) && (@bike_reg.photo_2.present?) && bike_reg_photo_path(@xyz_code, 2)
     @next_page_url ||= (@photo_number <= 2) && (@bike_reg.photo_3.present?) && bike_reg_photo_path(@xyz_code, 3)

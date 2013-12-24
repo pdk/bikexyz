@@ -1,11 +1,11 @@
 
 <h3>About The Bicycle</h3>
 
-<%= f.text_field :serial_number, :placeholder => "Serial Number", :required => true %> <span class="formhint">(required)</span>
-<br>
-<%= f.text_field :color, :placeholder => "Color", :required => true %> <span class="formhint">(required)</span>
+<%= f.text_field :color, :placeholder => "Color", :required => true, :autofocus => true %> <span class="formhint">(required)</span>
 <br>
 <%= f.text_field :brand, :placeholder => "brand" %> <span class="formhint">(Specialized, Trek, ...)</span>
+<br>
+<%= f.number_field :year, :placeholder => "year", :style => "width: 120px; margin-left: 2px;", :max => 2050, :min => 1901 %>
 <br>
 <%= f.text_field :model, :placeholder => "model" %>
 <br>
@@ -13,7 +13,9 @@
 <br>
 <%= f.text_field :size, :placeholder => "size" %> <span class="formhint">(54cm, 19", medium, ...)</span>
 <br>
-<%= f.text_field :number_of_gears, :placeholder => "# of gears" %>
+<%= f.number_field :number_of_gears, :placeholder => "# of gears", :style => "width: 120px; margin-left: 2px;", :size => 20, :max => 50, :min => 1 %>
+<br>
+<%= f.text_field :serial_number, :placeholder => "Serial Number" %> <span class="formhint">(recommended)</span>
 <br>
 <%= f.text_area :notes, :placeholder => "additional description/comments", :size => "40x5" %>
 
