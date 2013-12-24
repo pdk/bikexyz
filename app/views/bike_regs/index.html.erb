@@ -2,6 +2,6 @@
 
 <ul>
 <% @bike_regs.each do |bike_reg| %>
-<li> <%= link_to bike_reg.xyz_code, bike_reg_path(bike_reg.xyz_code) %> <%= bike_reg.color %> <%= bike_reg.brand %> </li>
+<li> <%= link_to bike_reg.xyz_code, bike_reg_path(bike_reg.xyz_code) %> <%= bike_reg.color %> <%= bike_reg.brand %> <%= bike_reg.model %></li>
 <% end %>
 </ul>
