@@ -22,7 +22,7 @@ class BikeRegsController < ApplicationController
     else
       @bike_regs = BikeReg.where("? in (primary_email, second_email, third_email)", @user_email)
       if @bike_regs.size == 1
-        redirect_to bike_reg_path(@bike_regs[0])
+        redirect_to bike_reg_path(@bike_regs[0].xyz_code)
         return
       end
     end
