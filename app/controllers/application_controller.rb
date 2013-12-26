@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  if ENV['GLOBAL_APP_USERNAME'].present? and ENV['GLOBAL_APP_PASSWORD'].present?
+    http_basic_authenticate_with :name => ENV['GLOBAL_APP_USERNAME'], :password => ENV['GLOBAL_APP_PASSWORD']
+  end
+
   def user_for_paper_trail
     current_user
   end
