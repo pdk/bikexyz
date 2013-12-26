@@ -27,6 +27,8 @@ Bikexyz::Application.routes.draw do
   
   get ':xyz_code/photo/:photo_number', :to => 'bike_regs#photo', :as => :bike_reg_photo
 
+  post "incoming-email/#{ENV['POSTMARK_INCOMING_PATH']}", :to => 'incoming_email#register', :as => :email_register
+  post "bounce-email/#{ENV['POSTMARK_INCOMING_PATH']}", :to => 'incoming_email#bounce', :as => :email_bounce
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

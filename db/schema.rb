@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131224083705) do
+ActiveRecord::Schema.define(:version => 20131226090608) do
 
   create_table "auth_keys", :force => true do |t|
     t.string   "email",      :null => false
@@ -70,6 +70,9 @@ ActiveRecord::Schema.define(:version => 20131224083705) do
   end
 
   add_index "bike_regs", ["xyz_code"], :name => "index_bike_regs_on_xyz_code", :unique => true
+
+# Could not dump table "inbound_emails" because of following StandardError
+#   Unknown type 'json' for column 'message_data'
 
   create_table "lookup_codes", :force => true do |t|
     t.datetime "created_at",                    :null => false
