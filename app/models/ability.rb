@@ -8,10 +8,6 @@ class Ability
       can :manage, :all
     else
       can :read, :all
-      can :create, Bicycle
-      # can :update, Bicycle do |bicycle|
-      #   bicycle.try(:user) == user
-      # end
     end
     
     # Define abilities for the passed in user here. For example:

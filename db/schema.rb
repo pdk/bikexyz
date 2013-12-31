@@ -11,31 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131226090608) do
+ActiveRecord::Schema.define(:version => 20131231030604) do
 
   create_table "auth_keys", :force => true do |t|
     t.string   "email",      :null => false
     t.string   "key",        :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "bicycles", :force => true do |t|
-    t.string   "lookup_code"
-    t.string   "owner_name"
-    t.string   "owner_alternate_name"
-    t.string   "make"
-    t.string   "model"
-    t.string   "type"
-    t.string   "color"
-    t.string   "size"
-    t.string   "serial"
-    t.integer  "gears"
-    t.string   "city"
-    t.string   "state"
-    t.string   "country"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
   end
 
   create_table "bike_regs", :force => true do |t|
@@ -81,14 +63,6 @@ ActiveRecord::Schema.define(:version => 20131226090608) do
   end
 
   add_index "lookup_codes", ["xyz_code"], :name => "index_lookup_codes_on_xyz_code", :unique => true
-
-  create_table "user_bicycles", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "bicycle_id"
-    t.string   "kind"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",     :null => false
