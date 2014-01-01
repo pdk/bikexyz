@@ -61,8 +61,8 @@
             st_summary = ""
 
             if @bike_reg.present?
-              st_url = "http://bikexyz.com/#{@bike_reg.xyz_code}"
-              st_title = "I registered my bicycle bikexyz.com/#{@bike_reg.xyz_code}"
+              st_url = "http://#{ @bike_reg.lookup_label }"
+              st_title = "I registered my bicycle #{ @bike_reg.lookup_label }"
               st_image = @bike_reg.photo_1_url(:medium)
               st_summary = "Free bicycle registration that anybody can verify."
             end
@@ -79,7 +79,7 @@
     </div>
 
     <footer>
-      <p>&copy; bikexyz.com 2013</p>
+      <p>&copy; <%= SITE_TITLE_DOMAIN %> 2013</p>
     </footer>
 
   </body>

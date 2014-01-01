@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "robot@bikexyz.com"
+  default from: "robot@#{ SITE_EMAIL_DOMAIN }"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -9,6 +9,6 @@ class UserMailer < ActionMailer::Base
   def auth(email)
     @auth = AuthKey.create!(:email => email)
     
-    mail to: email, :subject => "bikexyz.com identity verification"
+    mail to: email, :subject => "#{ SITE_TITLE } identity verification"
   end
 end

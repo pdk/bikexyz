@@ -1,8 +1,8 @@
-<% content_for :title, "bikexyz.com/#{@bike_reg.xyz_code} bicycle registration" %>
+<% content_for :title, "#{ @bike_reg.lookup_label } bicycle registration" %>
 
 <div id="show-reg">
 
-<h2><span class="regcode">bikexyz.com/<%= @bike_reg.xyz_code %></span></h2>
+<h2><span class="regcode"><%= @bike_reg.lookup_label %></span></h2>
 
 <div id="reg-text">
 

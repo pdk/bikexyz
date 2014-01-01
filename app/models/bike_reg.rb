@@ -32,4 +32,12 @@ class BikeReg < ActiveRecord::Base
     
     [primary_email.downcase, second_email.downcase, third_email.downcase].include? email.downcase
   end
+  
+  def lookup_label
+    "#{ SITE_TITLE_DOMAIN }/#{xyz_code}/"
+  end
+  
+  def lookup_url
+    "http://#{ SITE_TITLE_DOMAIN }/#{xyz_code}/"    
+  end
 end

@@ -2,13 +2,13 @@
 <h2>Register my bike</h2>
 
 <% @bike_reg.xyz_code = LookupCode.next_code.xyz_code %>
-<p><span class="regcode">bikexyz.com/<%= @bike_reg.xyz_code %></span>
+<p><span class="regcode"><%= @bike_reg.lookup_label %></span>
 </p>
 
 <p>
   <strong>IMPORTANT</strong>
   After registering your bike, you will need to <strong>permanently</strong>
-  mark your bike with "bikexyz.com/<%= @bike_reg.xyz_code %>".
+  mark your bike with "<%= @bike_reg.lookup_label %>".
   If you don't like this code, <a href="<%= new_bike_reg_path %>">click here to get a new one</a>.
 </p>
 
