@@ -1,5 +1,5 @@
 class BikeRegsController < ApplicationController
-  layout "simple"
+  layout "boot_simple"
 
   # GET /bike_regs
   # GET /bike_regs.json

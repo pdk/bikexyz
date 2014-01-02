@@ -1,0 +1,41 @@
+body {
+  padding-top: 20px;
+}
+.min50 {
+  min-width: 50px;
+}
+
+ul.nav-menu {
+  padding-left: 0px;
+}
+
+.nav-menu li {
+  display: inline-block;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.nav-menu li a {
+  padding: 10px;
+  margin-left: 0px;
+  border: 0px;
+  white-space: nowrap;
+  background-color: #009245;
+  color: #fff;
+  text-decoration: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.nav-menu li a:hover {
+  background-color: #006837;
+}
+
+.verified_notice {
+  float: right;
+  font-size: 90%;
+}
+
+.nowrap {
+  white-space: nowrap;
+}

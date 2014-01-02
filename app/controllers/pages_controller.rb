@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  layout "simple"
+  layout "boot_simple"
   
   def index
     do_sharethis

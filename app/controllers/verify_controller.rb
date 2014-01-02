@@ -1,5 +1,5 @@
 class VerifyController < ApplicationController
-  layout "simple"
+  layout "boot_simple"
   
   def index
     id = params[:auth_id]
