@@ -39,3 +39,13 @@ ul.nav-menu {
 .nowrap {
   white-space: nowrap;
 }
+
+.regcode {
+  background: #ddd;
+  font-weight: bold;
+  border-radius: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
