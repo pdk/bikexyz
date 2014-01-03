@@ -126,7 +126,10 @@ class BikeRegsController < ApplicationController
 
     respond_to do |format|
       if @bike_reg.update_attributes(params[:bike_reg])
-        format.html { redirect_to bike_reg_path(@bike_reg.xyz_code), notice: 'Bike reg was successfully updated.' }
+        format.html {
+          flash[:success] = "Your registration was successfully updated."
+          redirect_to bike_reg_path(@bike_reg.xyz_code)
+        }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
