@@ -12,7 +12,7 @@
             <div class="form-group <%= has_error? @bike_reg, :name %>">
               <label for="bike_reg_name" class="col-lg-3 control-label">Name</label>
               <div class="col-lg-9">
-            		<%= f.text_field  :name,            :placeholder => "First M. Last", :autofocus => true, :class => "form-control" %>
+            		<%= f.text_field  :name, :placeholder => "First M. Last", :autofocus => true, :required => true, :class => "form-control" %>
                 <%= error_message_for @bike_reg, :name, "Name", :help_text => "Required." %>
               </div>
             </div>
@@ -20,7 +20,8 @@
             <div class="form-group">
               <label for="bike_reg_alternate_name" class="col-lg-3 control-label">Alternate Name</label>
               <div class="col-lg-9">
-            		<%= f.text_field  :alternate_name,  :placeholder => "", :class => "form-control" %>
+            		<%= f.text_field  :alternate_name, :placeholder => "", :class => "form-control" %>
+                <span class="help-block">Here you can enter a second name for yourself, or another person's.</span>
               </div>
             </div>
 
@@ -29,7 +30,7 @@
             <div class="form-group">
               <label for="bike_reg_serial_number" class="col-lg-3 control-label">Serial Number</label>
               <div class="col-lg-9">
-            		<%= f.text_field  :serial_number,   :placeholder => "321321321321", :class => "form-control" %>
+            		<%= f.text_field  :serial_number, :placeholder => "321321321321", :class => "form-control" %>
                 <span class="help-block">Not required, but very, very good to include.</span>
               </div>
             </div>
@@ -44,35 +45,35 @@
             <div class="form-group">
               <label for="bike_reg_brand" class="col-lg-3 control-label">Brand</label>
               <div class="col-lg-9">
-            		<%= f.text_field  :brand,           :placeholder => "Specialized, Trek, ...", :class => "form-control" %>
+            		<%= f.text_field  :brand, :placeholder => "Specialized, Trek, ...", :class => "form-control" %>
               </div>
             </div>
             
             <div class="form-group">
               <label for="bike_reg_year" class="col-lg-3 control-label">Year</label>
               <div class="col-lg-9">
-            		<%= f.text_field  :year,            :placeholder => "1985, 2010, ...", :class => "form-control" %>
+            		<%= f.text_field  :year, :placeholder => "1985, 2010, ...", :class => "form-control" %>
               </div>
             </div>
             
             <div class="form-group">
               <label for="bike_reg_model" class="col-lg-3 control-label">Model</label>
               <div class="col-lg-9">
-            		<%= f.text_field  :model,           :placeholder => "Sirrus, EMD, ...", :class => "form-control" %>
+            		<%= f.text_field  :model, :placeholder => "Sirrus, EMD, ...", :class => "form-control" %>
               </div>
             </div>
             
             <div class="form-group">
               <label for="bike_reg_kind" class="col-lg-3 control-label">Kind</label>
               <div class="col-lg-9">
-            		<%= f.text_field  :kind,            :placeholder => "road, mountain, hybrid, ...", :class => "form-control" %>
+            		<%= f.text_field  :kind, :placeholder => "road, mountain, hybrid, ...", :class => "form-control" %>
               </div>
             </div>
             
             <div class="form-group">
               <label for="bike_reg_size" class="col-lg-3 control-label">Size</label>
               <div class="col-lg-9">
-            		<%= f.text_field  :size,            :placeholder => '54cm, 19", medium, ...', :class => "form-control" %>
+            		<%= f.text_field  :size, :placeholder => '54cm, 19", medium, ...', :class => "form-control" %>
               </div>
             </div>
             
@@ -96,21 +97,21 @@
             <div class="form-group">
               <label for="bike_reg_city" class="col-lg-3 control-label">City</label>
               <div class="col-lg-9">
-            		<%= f.text_field  :city,            :placeholder => "San Francisco, Honolulu, ...", :class => "form-control" %>
+            		<%= f.text_field  :city, :placeholder => "San Francisco, Honolulu, ...", :class => "form-control" %>
               </div>
             </div>
 
             <div class="form-group">
               <label for="bike_reg_state" class="col-lg-3 control-label">State</label>
               <div class="col-lg-9">
-            		<%= f.text_field  :state,           :placeholder => "CA, HI, ...", :class => "form-control" %>
+            		<%= f.text_field  :state, :placeholder => "CA, HI, ...", :class => "form-control" %>
               </div>
             </div>
             
             <div class="form-group <%= has_error? @bike_reg, :country %>">
               <label for="bike_reg_country" class="col-lg-3 control-label">Country</label>
               <div class="col-lg-9">
-                <%= f.text_field  :country,         :placeholder => "USA, Japan, ...", :class => "form-control" %>
+                <%= f.text_field  :country, :placeholder => "USA, Japan, ...", :class => "form-control", :required => true %>
                 <%= error_message_for @bike_reg, :country, "Country", :help_text => "Required." %>
               </div>
             </div>
@@ -120,7 +121,7 @@
             <div class="form-group <%= has_error? @bike_reg, :primary_email %>">
               <label for="bike_reg_email" class="col-lg-3 control-label">Primary Email</label>
               <div class="col-lg-9">
-                <%= f.email_field :primary_email,    :placeholder => "john.smith@emailservice.com", :class => "form-control" %>
+                <%= f.email_field :primary_email, :placeholder => "john.smith@emailservice.com", :class => "form-control", :required => true %>
                 <%= error_message_for @bike_reg, :primary_email, "Primary email", :help_text => "Required so that we can verify your identity when you need to update this registration." %>
               </div>
             </div>
@@ -128,7 +129,7 @@
             <div class="form-group">
               <label for="bike_reg_second_email" class="col-lg-3 control-label">Second Email</label>
               <div class="col-lg-9">
-                <%= f.email_field :second_email,    :placeholder => "", :class => "form-control" %>
+                <%= f.email_field :second_email, :placeholder => "", :class => "form-control" %>
                 <span class="help-block">A backup address, in case your first email becomes invalid.</span>
               </div>
             </div>
@@ -136,14 +137,14 @@
             <div class="form-group">
               <label for="bike_reg_third_email" class="col-lg-3 control-label">Third Email</label>
               <div class="col-lg-9">
-            		<%= f.email_field :third_email,     :placeholder => "", :class => "form-control" %>
+            		<%= f.email_field :third_email, :placeholder => "", :class => "form-control" %>
                 <span class="help-block">Another backup address.</span>
               </div>
             </div>
                         
             <div class="form-group">
               <div class="col-lg-5 col-lg-offset-6">
-                <button class="btn btn-default">Cancel</button> 
+                <a href="/" class="btn btn-default">Cancel</a> 
                 <%= f.submit :submit, :class => "btn btn-primary", :value => "Register" %>
               </div>
             </div>

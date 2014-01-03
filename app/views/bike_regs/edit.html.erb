@@ -1,4 +1,4 @@
-<h2><span class="regcode"><%= @bike_reg.lookup_label %></span></h2>
+<h2 class="regcode"><span class="regcode"><%= @bike_reg.lookup_label %></span></h2>
 
 <%= form_for(@bike_reg, :url => update_bike_reg_path(@bike_reg.xyz_code), :html => { :action => :post }) do |f| %>
 

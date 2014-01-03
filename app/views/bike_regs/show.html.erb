@@ -1,10 +1,6 @@
 <% content_for :title, "#{ @bike_reg.lookup_label } bicycle registration" %>
 
-<div id="show-reg">
-
-<h2><span class="regcode"><%= @bike_reg.lookup_label %></span></h2>
-
-<div id="reg-text">
+<h2 class="regcode"><span class="regcode"><%= @bike_reg.lookup_label %></span></h2>
 
 <p>
 Registration created at <%= @bike_reg.created_at %> (<%= time_ago_in_words(@bike_reg.created_at) %> ago)
@@ -91,34 +87,28 @@ Description/comments:
   <%= button_to 'Edit this registration', edit_bike_reg_path(@bike_reg.xyz_code), :class => "bigsubmit", :method => :get %>
 </p>
 
-</div>
+  
+<% if @bike_reg.photo_1.present? %>
+  <%= link_to image_tag(@bike_reg.photo_1_url(:small_square)), bike_reg_photo_path(@bike_reg.xyz_code, 1) %>
+<% end %>
 
-<div id="reg-photos">  
-  
-  <% if @bike_reg.photo_1.present? %>
-    <%= link_to image_tag(@bike_reg.photo_1_url(:small_square)), bike_reg_photo_path(@bike_reg.xyz_code, 1) %>
-  <% end %>
-  
-  <% if @bike_reg.photo_2.present? %>
-    <%= link_to image_tag(@bike_reg.photo_2_url(:small_square)), bike_reg_photo_path(@bike_reg.xyz_code, 2) %>
-  <% end %>
-  
-  <% if @bike_reg.photo_3.present? %>
-    <%= link_to image_tag(@bike_reg.photo_3_url(:small_square)), bike_reg_photo_path(@bike_reg.xyz_code, 3) %>
-  <% end %>
-  
-  <% if @bike_reg.photo_4.present? %>
-    <%= link_to image_tag(@bike_reg.photo_4_url(:small_square)), bike_reg_photo_path(@bike_reg.xyz_code, 4) %>
-  <% end %>
-  
-  <% if @bike_reg.photo_5.present? %>
-    <%= link_to image_tag(@bike_reg.photo_5_url(:small_square)), bike_reg_photo_path(@bike_reg.xyz_code, 5) %>
-  <% end %>
-  
-  <% if @bike_reg.photo_6.present? %>
-    <%= link_to image_tag(@bike_reg.photo_6_url(:small_square)), bike_reg_photo_path(@bike_reg.xyz_code, 6) %>
-  <% end %>
-  
-</div>
+<% if @bike_reg.photo_2.present? %>
+  <%= link_to image_tag(@bike_reg.photo_2_url(:small_square)), bike_reg_photo_path(@bike_reg.xyz_code, 2) %>
+<% end %>
 
-</div>
+<% if @bike_reg.photo_3.present? %>
+  <%= link_to image_tag(@bike_reg.photo_3_url(:small_square)), bike_reg_photo_path(@bike_reg.xyz_code, 3) %>
+<% end %>
+
+<% if @bike_reg.photo_4.present? %>
+  <%= link_to image_tag(@bike_reg.photo_4_url(:small_square)), bike_reg_photo_path(@bike_reg.xyz_code, 4) %>
+<% end %>
+
+<% if @bike_reg.photo_5.present? %>
+  <%= link_to image_tag(@bike_reg.photo_5_url(:small_square)), bike_reg_photo_path(@bike_reg.xyz_code, 5) %>
+<% end %>
+
+<% if @bike_reg.photo_6.present? %>
+  <%= link_to image_tag(@bike_reg.photo_6_url(:small_square)), bike_reg_photo_path(@bike_reg.xyz_code, 6) %>
+<% end %>
+  

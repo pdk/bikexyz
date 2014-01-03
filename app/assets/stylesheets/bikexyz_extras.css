@@ -40,15 +40,16 @@ ul.nav-menu {
   white-space: nowrap;
 }
 
-.regcode {
+h2.regcode {
+  margin-bottom: 20px;
+}
+
+span.regcode {
   color: #006837;
-  background: #ddd;
   font-weight: bold;
-  border-radius: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  border: 2px solid #006837;
+  border-radius: 20px;
+  padding: 5px 10px 5px 10px;
 }
 
 .margin-top-5 {
