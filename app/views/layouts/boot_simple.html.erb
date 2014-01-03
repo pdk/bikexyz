@@ -70,6 +70,25 @@
         <% end %>
           
         <div class="col-xs-11">
+
+          <!-- flash -->
+          <% flash.each do |level, msg| %>
+            <% if msg.is_a? Array %>
+              <% msg.each do |each_msg| %>
+                <div class="alert alert-dismissable alert-<%= flash_class level %>">
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  <%= each_msg %>
+                </div>
+              <% end %>
+            <% else %>
+              <div class="alert alert-dismissable alert-<%= flash_class level %>">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <%= msg %>
+              </div>
+            <% end %>
+          <% end %>
+          <!-- end flash -->
+          
           <%= yield %>
         </div>
       </div>

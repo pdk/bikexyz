@@ -21,4 +21,31 @@ module ApplicationHelper
   def include_sharethis?
     return @include_sharethis || false
   end
+
+  def flash_class(level)
+    case level
+    when :notice then "info"
+    when :error then "danger"
+    when :alert then "warning"
+    when :success then "success"
+    else level.to_s   # not defined in bootstrap, but pass it along just in case
+    end
+  end
+
+  def error_message_for(resource, field, label, options = {:help_text => ""})
+    error_message = resource.errors[field][0]
+    if error_message.present?
+      raw %{<p class="text-danger margin-top-5">#{label} #{error_message}</p>}
+    elsif options[:help_text].present?
+      raw %{<span class="help-block">#{options[:help_text]}</span>}
+    end
+  end
+  
+  def has_error?(resource, field)
+    if resource.errors[field].present?
+      "has-error"
+    else
+      ""
+    end
+  end
 end

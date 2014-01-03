@@ -70,6 +70,11 @@ class BikeRegsController < ApplicationController
   def new
     @bike_reg = BikeReg.new
 
+    # flash.now[:notice] = 'bonjour'
+    # flash.now[:error] = 'dis b error'
+    # flash.now[:alert] = 'beware!'
+    # flash.now[:success] = 'awesome!'
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @bike_reg }
@@ -93,10 +98,17 @@ class BikeRegsController < ApplicationController
 
     respond_to do |format|
       if @bike_reg.save
-        format.html { redirect_to bike_reg_path(@bike_reg.xyz_code), notice: 'Bike reg was successfully created.' }
+        format.html {
+          flash[:success] = "Your bicycle was successfully registered."
+          redirect_to bike_reg_path(@bike_reg.xyz_code)
+        }
         format.json { render json: @bike_reg, status: :created, location: @bike_reg }
       else
-        format.html { render action: "new" }
+        format.html {
+          # flash.now[:error] = @bike_reg.errors.to_a
+          flash.now[:error] = 'There were problems saving your registration. See below.'
+          render action: "new"
+        }
         format.json { render json: @bike_reg.errors, status: :unprocessable_entity }
       end
     end

@@ -1,26 +1,12 @@
-
-<h2>Register my bike</h2>
-
 <% @bike_reg.xyz_code = LookupCode.next_code.xyz_code %>
-<p><span class="regcode"><%= @bike_reg.lookup_label %></span>
-</p>
-
+<h2><span class="regcode"><%= @bike_reg.lookup_label %></span></h2>
+<br>
 <p>
-  <strong>IMPORTANT</strong>
+  <strong>IMPORTANT:</strong>
   After registering your bike, you will need to <strong>permanently</strong>
-  mark your bike with "<%= @bike_reg.lookup_label %>".
+  mark your bike with the web address shown above.
   If you don't like this code, <a href="<%= new_bike_reg_path %>">click here to get a new one</a>.
 </p>
 
-<%= form_for(@bike_reg, :url => create_bike_reg_path, :html => { :action => :post }) do |f| %>
+<%= render 'form' %>
 
-<%= f.hidden_field :xyz_code %>
-
-<%= render 'form', :f => f %>
-
-<p> Everything triple checked? When it's all good...
-</p>
-
-<%= f.submit :submit, :class => "bigsubmit", :value => "Save Registration" %>
-
-<% end %>

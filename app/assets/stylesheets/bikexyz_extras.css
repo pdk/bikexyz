@@ -41,6 +41,7 @@ ul.nav-menu {
 }
 
 .regcode {
+  color: #006837;
   background: #ddd;
   font-weight: bold;
   border-radius: 8px;
@@ -48,4 +49,8 @@ ul.nav-menu {
   padding-right: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+.margin-top-5 {
+  margin-top: 5px;
 }

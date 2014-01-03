@@ -1,50 +1,154 @@
 
-<h3>About The Bicycle</h3>
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="well">
+        <%= form_for(@bike_reg, :url => create_bike_reg_path, :html => { :action => :post, :class => "form-horizontal"}) do |f| %>
+          <fieldset>
 
-<%= f.text_field :color, :placeholder => "Color", :required => true, :autofocus => true %> <span class="formhint">(required)</span>
-<br>
-<%= f.text_field :brand, :placeholder => "brand" %> <span class="formhint">(Specialized, Trek, ...)</span>
-<br>
-<%= f.number_field :year, :placeholder => "year", :style => "width: 120px; margin-left: 2px;", :max => 2050, :min => 1901 %>
-<br>
-<%= f.text_field :model, :placeholder => "model" %>
-<br>
-<%= f.text_field :kind, :placeholder => "kind" %> <span class="formhint">(road, mountain, hybrid, ...)</span>
-<br>
-<%= f.text_field :size, :placeholder => "size" %> <span class="formhint">(54cm, 19", medium, ...)</span>
-<br>
-<%= f.number_field :number_of_gears, :placeholder => "# of gears", :style => "width: 120px; margin-left: 2px;", :size => 20, :max => 50, :min => 1 %>
-<br>
-<%= f.text_field :serial_number, :placeholder => "Serial Number" %> <span class="formhint">(recommended)</span>
-<br>
-<%= f.text_area :notes, :placeholder => "additional description/comments", :size => "40x5" %>
+            <%= f.hidden_field :xyz_code %>
 
+            <legend>Owner name</legend>
 
-<h3>About You</h3>
+            <div class="form-group <%= has_error? @bike_reg, :name %>">
+              <label for="bike_reg_name" class="col-lg-3 control-label">Name</label>
+              <div class="col-lg-9">
+            		<%= f.text_field  :name,            :placeholder => "First M. Last", :autofocus => true, :class => "form-control" %>
+                <%= error_message_for @bike_reg, :name, "Name", :help_text => "Required." %>
+              </div>
+            </div>
 
-<%= f.text_field :name, :placeholder => "First M. Last", :required => true %> <span class="formhint">(required)</span>
-<br>
-<%= f.text_field :alternate_name, :placeholder => "got another name?" %> <span class="formhint">(optional, an alternate name)</span>
-<br>
-<%= f.text_field :city, :placeholder => "city" %>
-<br>
-<%= f.text_field :state, :placeholder => "state" %>
-<br>
-<%= f.text_field :country, :placeholder => "country", :required => true %> <span class="formhint">(required)</span>
+            <div class="form-group">
+              <label for="bike_reg_alternate_name" class="col-lg-3 control-label">Alternate Name</label>
+              <div class="col-lg-9">
+            		<%= f.text_field  :alternate_name,  :placeholder => "", :class => "form-control" %>
+              </div>
+            </div>
 
-<p>We <strong>do not ever</strong> display emails/phone on the web,
-   and we <strong>do not</strong> "share with partners". We need at least 1 email
-   address in order to verify your identity when you need to edit this registration.
-</p>
+            <legend>About the bicycle</legend>
 
-<%= f.email_field :primary_email, :placeholder => "primary email", :required => true %> <span class="formhint">(required)</span>
-<br>
-<%= f.email_field :second_email, :placeholder => "second email" %>
-<br>
-<%= f.email_field :third_email, :placeholder => "third email" %>
-<br>
-<%= f.telephone_field :cell_phone_one, :placeholder => "cell phone one" %>
-<br>
-<%= f.telephone_field :cell_phone_one, :placeholder => "cell phone two" %>
+            <div class="form-group">
+              <label for="bike_reg_serial_number" class="col-lg-3 control-label">Serial Number</label>
+              <div class="col-lg-9">
+            		<%= f.text_field  :serial_number,   :placeholder => "321321321321", :class => "form-control" %>
+                <span class="help-block">Not required, but very, very good to include.</span>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="bike_reg_color" class="col-lg-3 control-label">Color</label>
+              <div class="col-lg-9">
+                <%= f.text_field :color, :placeholder => "blue, green, silver, ...", :class => "form-control" %>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="bike_reg_brand" class="col-lg-3 control-label">Brand</label>
+              <div class="col-lg-9">
+            		<%= f.text_field  :brand,           :placeholder => "Specialized, Trek, ...", :class => "form-control" %>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="bike_reg_year" class="col-lg-3 control-label">Year</label>
+              <div class="col-lg-9">
+            		<%= f.text_field  :year,            :placeholder => "1985, 2010, ...", :class => "form-control" %>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="bike_reg_model" class="col-lg-3 control-label">Model</label>
+              <div class="col-lg-9">
+            		<%= f.text_field  :model,           :placeholder => "Sirrus, EMD, ...", :class => "form-control" %>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="bike_reg_kind" class="col-lg-3 control-label">Kind</label>
+              <div class="col-lg-9">
+            		<%= f.text_field  :kind,            :placeholder => "road, mountain, hybrid, ...", :class => "form-control" %>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="bike_reg_size" class="col-lg-3 control-label">Size</label>
+              <div class="col-lg-9">
+            		<%= f.text_field  :size,            :placeholder => '54cm, 19", medium, ...', :class => "form-control" %>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="bike_reg_number_of_gears" class="col-lg-3 control-label"># of Gears</label>
+              <div class="col-lg-9">
+            		<%= f.text_field  :number_of_gears, :placeholder => "1, 10, 24, ...", :class => "form-control" %>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="bike_reg_notes" class="col-lg-3 control-label">Notes</label>
+              <div class="col-lg-9">
+                <%= f.text_area :notes, :placeholder => "", :size => "x3", :class => "form-control" %>
+                <span class="help-block">Any other distinguishing features or markings of this bicycle.</span>
+              </div>
+            </div>
 
+            <legend>Location</legend>
 
+            <div class="form-group">
+              <label for="bike_reg_city" class="col-lg-3 control-label">City</label>
+              <div class="col-lg-9">
+            		<%= f.text_field  :city,            :placeholder => "San Francisco, Honolulu, ...", :class => "form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="bike_reg_state" class="col-lg-3 control-label">State</label>
+              <div class="col-lg-9">
+            		<%= f.text_field  :state,           :placeholder => "CA, HI, ...", :class => "form-control" %>
+              </div>
+            </div>
+            
+            <div class="form-group <%= has_error? @bike_reg, :country %>">
+              <label for="bike_reg_country" class="col-lg-3 control-label">Country</label>
+              <div class="col-lg-9">
+                <%= f.text_field  :country,         :placeholder => "USA, Japan, ...", :class => "form-control" %>
+                <%= error_message_for @bike_reg, :country, "Country", :help_text => "Required." %>
+              </div>
+            </div>
+
+            <legend>Identity verification</legend>
+
+            <div class="form-group <%= has_error? @bike_reg, :primary_email %>">
+              <label for="bike_reg_email" class="col-lg-3 control-label">Primary Email</label>
+              <div class="col-lg-9">
+                <%= f.email_field :primary_email,    :placeholder => "john.smith@emailservice.com", :class => "form-control" %>
+                <%= error_message_for @bike_reg, :primary_email, "Primary email", :help_text => "Required so that we can verify your identity when you need to update this registration." %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="bike_reg_second_email" class="col-lg-3 control-label">Second Email</label>
+              <div class="col-lg-9">
+                <%= f.email_field :second_email,    :placeholder => "", :class => "form-control" %>
+                <span class="help-block">A backup address, in case your first email becomes invalid.</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="bike_reg_third_email" class="col-lg-3 control-label">Third Email</label>
+              <div class="col-lg-9">
+            		<%= f.email_field :third_email,     :placeholder => "", :class => "form-control" %>
+                <span class="help-block">Another backup address.</span>
+              </div>
+            </div>
+                        
+            <div class="form-group">
+              <div class="col-lg-5 col-lg-offset-6">
+                <button class="btn btn-default">Cancel</button> 
+                <%= f.submit :submit, :class => "btn btn-primary", :value => "Register" %>
+              </div>
+            </div>
+          </fieldset>
+        <% end %>
+      </div>
+    </div>
+  </div>
