@@ -21,80 +21,119 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-      
-  </head>
 
+    <% if is_front_page? %>
+      <style type="text/css" media="screen">
+      body { padding-top: 0px;}
+      .front-page-bg {
+        margin-bottom: 0px;
+        background-image: url(<%= image_path "caltrain-bikes.jpg" %>);
+        background-position: top;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+      .front-page-fg {
+        color: #fff;
+      }
+      .front-page-hd-img {
+        margin-left: 30px;
+        background-image: url(<%= image_path "front-page-header.jpg" %>);
+        opacity: 0.9;
+        filter:alpha(opacity=90); /* For IE8 and earlier */
+        width: 244px;
+        height: 105px;
+        color: #efefef;
+        font-size: 30px;
+        padding-left: 50px;
+        padding-top: 55px;
+      }
+
+      </style>
+    <% end %>
+  </head>
   <body>
 
-    <div class="container">
+    <% if is_front_page? %>
+      <%= yield %>
+    <% else %>
+    
+      <div class="container">
 
-      <div class="row">
-        <div class="col-xs-1 min50"><%= image_tag "logo_sml.png", :alt => "bikexyz logo" %></div>
-        <div class="col-xs-8">
+        <div class="row">
+          <div class="col-xs-1 min50"><%= image_tag "logo_sml.png", :alt => "bikexyz logo" %></div>
+          <div class="col-xs-8">
 
-          <nav>
-            <ul class="nav-menu">
+            <nav>
+              <ul class="nav-menu">
 
-              <li> <%= link_to "Home", root_path %> </li>
-              <li> <%= link_to "Register", new_bike_reg_path %> </li>
-              <li> <%= link_to "Search", search_path %> </li>
-              <li> <%= link_to "Recent", recent_bike_regs_path %> </li>
-              <li> <%= link_to "FAQ", faq_path %> </li>
-              <li> <%= link_to "About", about_path %> </li>
-            </ul>
-          </nav>
-        </div>
-        
-        <% if session[:email].present? %>
-          <div class="col-xs-3">
-            <!-- 
-            <div class="pull-right">
-              <a class="btn btn-primary btn-xs" href="<%= signout_path %>">sign out (<%= session[:email] %>)</a>
-            </div>
-            -->
-              
-            <ul class="nav nav-pills">
-              <li class="dropdown">
-                <a class="dropdown-toggle nowrap" data-toggle="dropdown" href="#">
-                  verified as <%= session[:email] %> <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><%= link_to "my registrations", my_bike_regs_path %></li>
-                  <li class="divider"></li>
-                  <li><%= link_to "sign out", signout_path %></li>
-                </ul>
-              </li>
-            </ul>
-              
+                <li> <%= link_to "Home", root_path %> </li>
+                <li> <%= link_to "Register", new_bike_reg_path %> </li>
+                <li> <%= link_to "Search", search_path %> </li>
+                <li> <%= link_to "Recent", recent_bike_regs_path %> </li>
+                <li> <%= link_to "FAQ", faq_path %> </li>
+                <li> <%= link_to "About", about_path %> </li>
+              </ul>
+            </nav>
           </div>
-        <% end %>
+        
+          <% if session[:email].present? %>
+            <div class="col-xs-3">
+              <!-- 
+              <div class="pull-right">
+                <a class="btn btn-primary btn-xs" href="<%= signout_path %>">sign out (<%= session[:email] %>)</a>
+              </div>
+              -->
+              
+              <ul class="nav nav-pills">
+                <li class="dropdown">
+                  <a class="dropdown-toggle nowrap" data-toggle="dropdown" href="#">
+                    verified as <%= session[:email] %> <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "my registrations", my_bike_regs_path %></li>
+                    <li class="divider"></li>
+                    <li><%= link_to "sign out", signout_path %></li>
+                  </ul>
+                </li>
+              </ul>
+              
+            </div>
+          <% end %>
           
-        <div class="col-xs-11">
+          <div class="col-xs-11">
 
-          <!-- flash -->
-          <% flash.each do |level, msg| %>
-            <% if msg.is_a? Array %>
-              <% msg.each do |each_msg| %>
+            <!-- flash -->
+            <% flash.each do |level, msg| %>
+              <% if msg.is_a? Array %>
+                <% msg.each do |each_msg| %>
+                  <div class="alert alert-dismissable alert-<%= flash_class level %>">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <%= each_msg %>
+                  </div>
+                <% end %>
+              <% else %>
                 <div class="alert alert-dismissable alert-<%= flash_class level %>">
                   <button type="button" class="close" data-dismiss="alert">&times;</button>
-                  <%= each_msg %>
+                  <%= msg %>
                 </div>
               <% end %>
-            <% else %>
-              <div class="alert alert-dismissable alert-<%= flash_class level %>">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <%= msg %>
-              </div>
             <% end %>
-          <% end %>
-          <!-- end flash -->
+            <!-- end flash -->
           
-          <%= yield %>
+            <%= yield %>
+          </div>
         </div>
+
+      </div><!-- /.container -->
+    <% end %>
+
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted text-center">&copy; <%= SITE_TITLE %> <%= Date.today.year %></p>
       </div>
-
-    </div><!-- /.container -->
-
+    </div>
+    
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <%= javascript_include_tag "bootstrap.min.js" %>
   </body>

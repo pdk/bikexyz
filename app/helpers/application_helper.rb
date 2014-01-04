@@ -48,4 +48,8 @@ module ApplicationHelper
       ""
     end
   end
+  
+  def is_front_page?
+    @is_front_page || false
+  end
 end

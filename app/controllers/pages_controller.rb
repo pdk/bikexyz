@@ -3,5 +3,6 @@ class PagesController < ApplicationController
   
   def index
     do_sharethis
+    @is_front_page = true
   end
 end
