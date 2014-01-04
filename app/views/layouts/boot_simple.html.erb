@@ -13,7 +13,7 @@
     <%= csrf_meta_tags %>
 
     <!-- Bootstrap core CSS -->
-    <%= stylesheet_link_tag "bootstrap.min.css" %>
+    <%= stylesheet_link_tag "bootstrap.css" %>
     <%= stylesheet_link_tag "bikexyz_extras.css" %>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -148,7 +148,7 @@
     <% if do_show_copyright? %>
       <div id="footer">
         <div class="container">
-          <p class="text-muted text-center">&copy; <%= SITE_TITLE %> <%= Date.today.year %></p>
+          <p class="text-muted text-center copy-notice">&copy; <%= SITE_TITLE %> <%= Date.today.year %></p>
         </div>
       </div>
     <% end %>

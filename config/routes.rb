@@ -7,13 +7,13 @@ Bikexyz::Application.routes.draw do
   devise_for :users, path_names: { sign_in: "login", sign_out: "logout", sign_up: "new-account" }
 
   get 'faq', :to => 'pages#faq', :as => :faq
-  get 'search', :to => 'pages#search', :as => :search
   get 'about', :to => 'pages#about', :as => :about
   get 'contact', :to => 'pages#contact', :as => :contact
   get 'marking', :to => 'pages#marking', :as => :marking
   get 'why', :to => 'pages#why', :as => :why
   get 'handout', :to => 'pages#handout', :as => :handout
 
+  get 'search', :to => 'bike_regs#search', :as => :search
   get "recent", :to => 'bike_regs#index', :as => :recent_bike_regs
   get "mine", :to => 'bike_regs#mine', :as => :my_bike_regs
   post 'register', :to => 'bike_regs#create', :as => :bike_regs

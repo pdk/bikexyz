@@ -47,6 +47,13 @@ Bikexyz::Application.configure do
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   config.assets.precompile += %w( search.js simple.css bootstrap.css bootstrap.min.css bikexyz_extras.css bootstrap.min.js bootstrap.js )
+  
+  # Adding Webfonts to the Asset Pipeline
+  config.assets.precompile << Proc.new { |path|
+    if path =~ /\.(eot|svg|ttf|woff)\z/
+      true
+    end
+  }
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false

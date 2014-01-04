@@ -45,6 +45,15 @@ class BikeReg < ActiveRecord::Base
     "http://#{ SITE_TITLE_DOMAIN }/#{xyz_code}/"    
   end
 
+  def BikeReg.text_search(query, limit=100)
+    if query.present?
+      rank = %{ts_rank(to_tsvector(searchable_text), plainto_tsquery(#{sanitize(query)}))}
+      where("searchable_text @@ :q", q: query).order("#{rank} desc").limit(limit)
+    else
+      scoped.limit(limit)
+    end
+  end
+
   before_save :set_searchable_text
   def set_searchable_text
     self.searchable_text = %{

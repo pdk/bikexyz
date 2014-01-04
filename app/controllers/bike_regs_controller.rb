@@ -14,6 +14,17 @@ class BikeRegsController < ApplicationController
     end
   end
   
+  def search
+    @query = params[:query]
+    
+    if @query.present?
+      @search_results = BikeReg.text_search(@query,25)
+      if @search_results.blank?
+        flash.now[:alert] = %{Nothing found for "#{@query}"}
+      end
+    end
+  end
+  
   def mine
     @user_email = session[:email]
     
