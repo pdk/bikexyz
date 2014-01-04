@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131231030604) do
+ActiveRecord::Schema.define(:version => 20140104174115) do
 
   create_table "auth_keys", :force => true do |t|
     t.string   "email",      :null => false
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20131231030604) do
     t.string   "photo_5"
     t.string   "photo_6"
     t.integer  "year"
+    t.text     "searchable_text"
   end
 
   add_index "bike_regs", ["xyz_code"], :name => "index_bike_regs_on_xyz_code", :unique => true

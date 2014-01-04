@@ -44,4 +44,39 @@ class BikeReg < ActiveRecord::Base
   def lookup_url
     "http://#{ SITE_TITLE_DOMAIN }/#{xyz_code}/"    
   end
+
+  before_save :set_searchable_text
+  def set_searchable_text
+    self.searchable_text = %{
+      #{xyz_code        }
+      #{serial_number   }
+      #{color           }
+      #{brand           }
+      #{model           }
+      #{kind            }
+      #{size            }
+      #{number_of_gears }
+      #{notes           }
+      #{name            }
+      #{alternate_name  }
+      #{city            }
+      #{state           }
+      #{country         }
+      #{primary_email   }
+      #{second_email    }
+      #{third_email     }
+      #{cell_phone_one  }
+      #{cell_phone_two  }
+      #{created_at      }
+      #{updated_at      }
+      #{photo_1         }
+      #{photo_2         }
+      #{photo_3         }
+      #{photo_4         }
+      #{photo_5         }
+      #{photo_6         }
+      #{year            }
+    }
+  end
+
 end
