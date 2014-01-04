@@ -58,13 +58,17 @@ class BikeRegsController < ApplicationController
       return
     end
     @bike_reg = BikeReg.find_by_xyz_code(@xyz_code)
-    
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @bike_reg }
+
+    if @bike_reg.blank?
+      render "not_found"
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @bike_reg }
+      end
     end
   end
-
+  
   # GET /bike_regs/new
   # GET /bike_regs/new.json
   def new

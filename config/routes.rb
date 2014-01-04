@@ -10,13 +10,15 @@ Bikexyz::Application.routes.draw do
   get 'search', :to => 'pages#search', :as => :search
   get 'about', :to => 'pages#about', :as => :about
   get 'contact', :to => 'pages#contact', :as => :contact
+  get 'marking', :to => 'pages#marking', :as => :marking
+  get 'why', :to => 'pages#why', :as => :why
 
   get "recent", :to => 'bike_regs#index', :as => :recent_bike_regs
   get "mine", :to => 'bike_regs#mine', :as => :my_bike_regs
   post 'register', :to => 'bike_regs#create', :as => :bike_regs
   get 'register', :to => 'bike_regs#new', :as => :new_bike_reg
   get ':xyz_code/edit', :to => 'bike_regs#edit', :as => :edit_bike_reg
-  get ':xyz_code(.:format)', :to => 'bike_regs#show', :as => :bike_reg
+  get ':xyz_code(.:format)(/)', :to => 'bike_regs#show', :as => :bike_reg
   match ':xyz_code', :to => 'bike_regs#update', :as => :update_bike_reg, :via => [:put, :post]
   
   get ':xyz_code/photo/:photo_number', :to => 'bike_regs#photo', :as => :bike_reg_photo
