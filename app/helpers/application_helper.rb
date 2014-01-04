@@ -52,4 +52,8 @@ module ApplicationHelper
   def is_front_page?
     @is_front_page || false
   end
+  
+  def do_show_copyright?
+    not (@hide_copyright || false)
+  end
 end

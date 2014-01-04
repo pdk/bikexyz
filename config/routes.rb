@@ -12,6 +12,7 @@ Bikexyz::Application.routes.draw do
   get 'contact', :to => 'pages#contact', :as => :contact
   get 'marking', :to => 'pages#marking', :as => :marking
   get 'why', :to => 'pages#why', :as => :why
+  get 'handout', :to => 'pages#handout', :as => :handout
 
   get "recent", :to => 'bike_regs#index', :as => :recent_bike_regs
   get "mine", :to => 'bike_regs#mine', :as => :my_bike_regs
