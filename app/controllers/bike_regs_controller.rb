@@ -129,6 +129,28 @@ class BikeRegsController < ApplicationController
     end
   end
 
+  def add_photo
+    @bike_reg = BikeReg.find_by_xyz_code(params[:xyz_code])
+
+    if not @bike_reg.authorized? session[:email]
+      redirect_to send_verify_email_path(@bike_reg.xyz_code)
+      return
+    end
+
+    respond_to do |format|
+      if @bike_reg.update_attributes(params[:bike_reg])
+        format.html {
+          flash[:success] = "Your photo was successfully added."
+          redirect_to bike_reg_path(@bike_reg.xyz_code)
+        }
+        format.json { head :no_content }
+      else
+        format.html { render action: "show" }
+        format.json { render json: @bike_reg.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # PUT /bike_regs/1
   # PUT /bike_regs/1.json
   def update

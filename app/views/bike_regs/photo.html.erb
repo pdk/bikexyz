@@ -1,7 +1,18 @@
-<div id="show-reg">
 
 <h2 class="regcode"><span class="regcode"><%= @bike_reg.lookup_label %></span></h2>
 
-<%= link_to image_tag(@photo_url), @next_page_url %>
+<div class="row">
+  <div class="col-sm-12">
 
+    <%= link_to image_tag(@photo_url), @next_page_url %>
+    
+  </div>
+  <div class="col-sm-4 col-sm-offset-2">
+
+    <br><br>
+    
+    <%= link_to "Cancel", bike_reg_path(@bike_reg), :class => "btn btn-default" %>
+    <%= link_to "Next", @next_page_url, :class => "btn btn-primary" %>
+
+  </div>
 </div>

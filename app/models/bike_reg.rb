@@ -88,4 +88,21 @@ class BikeReg < ActiveRecord::Base
     }
   end
 
+  def photo_slot_available?
+    photo_1.blank? || photo_2.blank? || photo_3.blank? || photo_4.blank? || photo_5.blank? || photo_6.blank?
+  end
+
+  def has_photos?
+    photo_1.present? || photo_2.present? || photo_3.present? || photo_4.present? || photo_5.present? || photo_6.present?
+  end
+  
+  def open_photo_slot
+    return :photo_1 if photo_1.blank?
+    return :photo_2 if photo_2.blank?
+    return :photo_3 if photo_3.blank?
+    return :photo_4 if photo_4.blank?
+    return :photo_5 if photo_5.blank?
+    return :photo_6 if photo_6.blank?
+    nil
+  end
 end

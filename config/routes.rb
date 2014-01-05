@@ -21,6 +21,7 @@ Bikexyz::Application.routes.draw do
   get ':xyz_code/edit', :to => 'bike_regs#edit', :as => :edit_bike_reg
   get ':xyz_code(.:format)(/)', :to => 'bike_regs#show', :as => :bike_reg
   match ':xyz_code', :to => 'bike_regs#update', :as => :update_bike_reg, :via => [:put, :post]
+  match ':xyz_code/photo', :to => 'bike_regs#add_photo', :as => :bike_reg_add_photo, :via => [:put, :post]
   
   get ':xyz_code/photo/:photo_number', :to => 'bike_regs#photo', :as => :bike_reg_photo
 
