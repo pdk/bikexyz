@@ -38,7 +38,7 @@ Most registration services deal okay with #1. There is usually a sticker proclai
 How can we fix this? Here is the solution:
 
 1. Assign a unique URL to each bike that can be checked by anybody with internet access.
-2. Put the URL on the bicycle in multiple place, in multiple ways, both obvious and obscure.
+2. Put the URL on the bicycle in multiple places, in multiple ways, both obvious and obscure.
 
 By using a simple URL, we make it easy and quick for anybody to check the registration. Just about everybody knows what a URL looks like, and knows what to do with it. No instructions are necessary.
 
