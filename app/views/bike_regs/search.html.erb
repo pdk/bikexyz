@@ -1,63 +1,59 @@
 <h1>Search</h1>
 
-<%= form_tag({:controller => :bike_regs, :action => :search}, :method => :get) do %>
-
 <p> 
   You can use this search to try and find a particular registration. If your query doesn't 
   find the bike that you're looking for, try adding more search words. Searching for your email address 
   or a person's name should work well.
 </p>
 
+<%= form_tag({:controller => :bike_regs, :action => :search}, :method => :get) do %>
+
   <div class="row">
-    <div class="col-md-4">
-  
+    <div class="col-xs-8 col-sm-6 col-md-4 col-lg-4">
+
       <%= search_field_tag :query, @query, :class => 'form-control', :placeholder => "search words...", :autofocus => true %>
 
     </div>
-    <div class="col-md-2">
-      
+    <div class="col-xs-3 col-sm-4 col-md-2">
+    
       <button type="submit" class="btn btn-primary">
       <span class="glyphicon glyphicon-search"></span> Search
       </button>
-  
+
     </div>
   </div>
 
 <% end %>
 
-<div class="row">
-  <div class="col-md-12">
+<%= render :partial => "grid" %>
   
-    <% if @search_results.present? %>
+<% if @search_results.present? %>
 
-      <h3>Results</h3>
-    
-      <table class="table table-responsive table-condensed">
+  <h3>Results</h3>
 
-        <tr>
-          <th class="text-center"> Code </th>
-          <th> Registered </th>
-          <th> Owner </th>
-          <th> Color </th>
-          <th> Brand </th>
-          <th> City </th>
-          <th> Country </th>
-        </tr>
-    
-        <% @search_results.each do |bike_reg| %>
-          <tr>
-            <td class="text-center"> <%= link_to bike_reg.xyz_code, bike_reg_path(bike_reg.xyz_code) %> </td>
-            <td> <%= bike_reg.created_at.to_date %>
-            <td> <%= bike_reg.name %> </td>
-            <td> <%= bike_reg.color %> </td>
-            <td> <%= bike_reg.brand %> </td>
-            <td> <%= bike_reg.city %> </td>
-            <td> <%= bike_reg.country %> </td>
-          </tr>
-        <% end %>
-      </table>
+  <table class="table table-responsive table-condensed">
 
+    <tr>
+      <th class="text-center"> Code </th>
+      <th> Registered </th>
+      <th> Owner </th>
+      <th> Color </th>
+      <th> Brand </th>
+      <th> City </th>
+      <th> Country </th>
+    </tr>
+
+    <% @search_results.each do |bike_reg| %>
+      <tr>
+        <td class="text-center"> <%= link_to bike_reg.xyz_code, bike_reg_path(bike_reg.xyz_code) %> </td>
+        <td> <%= bike_reg.created_at.to_date %>
+        <td> <%= bike_reg.name %> </td>
+        <td> <%= bike_reg.color %> </td>
+        <td> <%= bike_reg.brand %> </td>
+        <td> <%= bike_reg.city %> </td>
+        <td> <%= bike_reg.country %> </td>
+      </tr>
     <% end %>
+  </table>
 
-  </div>
-</div>
+<% end %>

@@ -56,4 +56,8 @@ module ApplicationHelper
   def do_show_copyright?
     not (@hide_copyright || false)
   end
+  
+  def include_stripe_js?
+    @include_stripe_js || false
+  end
 end

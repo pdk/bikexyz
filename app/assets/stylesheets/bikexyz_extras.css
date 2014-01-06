@@ -70,3 +70,20 @@ span.regcode {
 .diagram {
   padding: 5px;
 }
+
+.red-border {
+  border: 1px solid red;
+}
+
+.green-border {
+  border :1px solid green;
+}
+
+.bg-gray {
+  background-color: #aaa;
+}
+
+.bg-blue {
+  background-color: #55a;
+  color: #eee;
+}

@@ -1,5 +1,8 @@
 Bikexyz::Application.routes.draw do
 
+  get "order", :to => 'order#index', :as => :orders
+  post "order", :to => 'order#create', :as => :orders
+
   get "verify/:auth_id/:auth_key", :to => 'verify#index', :as => :verify
   get "verify/signout", :to => 'verify#signout', :as => :signout
   match "verify/:xyz_code", :to => 'verify#send_email', :as => :send_verify_email, :via => [:get, :post]

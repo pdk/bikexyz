@@ -17,91 +17,92 @@ Registration created at <%= @bike_reg.created_at %> (<%= time_ago_in_words(@bike
 <% end %>
 </p>
 
+<%#= render :partial => "grid" %>
 
 <div class="row">
-  <div class="col-md-6 col-sm-12">
-<p>
-  <%= button_to 'Edit this registration', edit_bike_reg_path(@bike_reg.xyz_code), :class => "btn btn-primary", :method => :get %>
-</p>
+  <div class="col-sm-6">
+    
+    <p>
+      <%= button_to 'Edit this registration', edit_bike_reg_path(@bike_reg.xyz_code), :class => "btn btn-primary", :method => :get %>
+    </p>
 
-<legend>Owner name</legend>
+    <legend>Owner</legend>
 
-<dl class="dl-horizontal">
+    <dl class="dl-horizontal">
 
-  <% if @bike_reg.name.present? %>
-    <dt>Name</dt><dd><%= @bike_reg.name %></dd>
-  <% end %>
+      <% if @bike_reg.name.present? %>
+        <dt>Name</dt><dd><%= @bike_reg.name %></dd>
+      <% end %>
 
-  <% if @bike_reg.alternate_name.present? %>
-    <dt>Alternate Name</dt><dd><%= @bike_reg.alternate_name %></dd>
-  <% end %>
+      <% if @bike_reg.alternate_name.present? %>
+        <dt>Alternate Name</dt><dd><%= @bike_reg.alternate_name %></dd>
+      <% end %>
 
-  <legend>About the bicycle</legend>
+      <legend>About the bicycle</legend>
 
-  <% if @bike_reg.serial_number.present? %>
-    <dt>Serial Number</dt><dd><%= @bike_reg.serial_number %></dd>
-  <% end %>
+      <% if @bike_reg.serial_number.present? %>
+        <dt>Serial Number</dt><dd><%= @bike_reg.serial_number %></dd>
+      <% end %>
 
-  <% if @bike_reg.color.present? %>
-    <dt>Color</dt><dd><%= @bike_reg.color %></dd>
-  <% end %>
+      <% if @bike_reg.color.present? %>
+        <dt>Color</dt><dd><%= @bike_reg.color %></dd>
+      <% end %>
 
-  <% if @bike_reg.brand.present? %>
-    <dt>Brand</dt><dd><%= @bike_reg.brand %></dd>
-  <% end %>
+      <% if @bike_reg.brand.present? %>
+        <dt>Brand</dt><dd><%= @bike_reg.brand %></dd>
+      <% end %>
 
-  <% if @bike_reg.year.present? %>
-    <dt>Year</dt><dd><%= @bike_reg.year %></dd>
-  <% end %>
+      <% if @bike_reg.year.present? %>
+        <dt>Year</dt><dd><%= @bike_reg.year %></dd>
+      <% end %>
 
-  <% if @bike_reg.model.present? %>
-    <dt>Model</dt><dd><%= @bike_reg.model %></dd>
-  <% end %>
+      <% if @bike_reg.model.present? %>
+        <dt>Model</dt><dd><%= @bike_reg.model %></dd>
+      <% end %>
 
-  <% if @bike_reg.kind.present? %>
-    <dt>Kind</dt><dd><%= @bike_reg.kind %></dd>
-  <% end %>
+      <% if @bike_reg.kind.present? %>
+        <dt>Kind</dt><dd><%= @bike_reg.kind %></dd>
+      <% end %>
 
-  <% if @bike_reg.size.present? %>
-    <dt>Size</dt><dd><%= @bike_reg.size %></dd>
-  <% end %>
+      <% if @bike_reg.size.present? %>
+        <dt>Size</dt><dd><%= @bike_reg.size %></dd>
+      <% end %>
 
-  <% if @bike_reg.number_of_gears.present? %>
-    <dt>Number of Gears</dt><dd><%= @bike_reg.number_of_gears %></dd>
-  <% end %>
+      <% if @bike_reg.number_of_gears.present? %>
+        <dt>Number of Gears</dt><dd><%= @bike_reg.number_of_gears %></dd>
+      <% end %>
 
-  <% if @bike_reg.notes.present? %>
-    <dt>Description/comments</dt><dd><%= simple_format(@bike_reg.notes, {:class => :userdata}, wrapper_tag: "span") %></dd>
-  <% end %>
+      <% if @bike_reg.notes.present? %>
+        <dt>Description/comments</dt><dd><%= simple_format(@bike_reg.notes, {:class => :userdata}, wrapper_tag: "span") %></dd>
+      <% end %>
 
-  <legend>Location</legend>
+      <legend>Location</legend>
 
-  <% if @bike_reg.city.present? %>
-    <dt>City</dt><dd><%= @bike_reg.city %></dd>
-  <% end %>
+      <% if @bike_reg.city.present? %>
+        <dt>City</dt><dd><%= @bike_reg.city %></dd>
+      <% end %>
 
-  <% if @bike_reg.state.present? %>
-    <dt>State</dt><dd><%= @bike_reg.state %></dd>
-  <% end %>
+      <% if @bike_reg.state.present? %>
+        <dt>State</dt><dd><%= @bike_reg.state %></dd>
+      <% end %>
 
-  <% if @bike_reg.country.present? %>
-    <dt>Country</dt><dd><%= @bike_reg.country %></dd>
-  <% end %>
-  
-</dl>
+      <% if @bike_reg.country.present? %>
+        <dt>Country</dt><dd><%= @bike_reg.country %></dd>
+      <% end %>
 
+    </dl>
 
-<p>
-  <%= button_to 'Edit this registration', edit_bike_reg_path(@bike_reg.xyz_code), :class => "btn btn-primary", :method => :get %>
-</p>
+    <p>
+      <%= button_to 'Edit this registration', edit_bike_reg_path(@bike_reg.xyz_code), :class => "btn btn-primary", :method => :get %>
+    </p>
 
-</div>
-  <div class="col-md-6 col-sm-12">
+  </div>
+  <div class="col-sm-6">
   
     <% if @bike_reg.has_photos? %>
 
       <legend>Photos</legend>
-      
+  
       <% if @bike_reg.photo_1.present? %>
         <%= link_to image_tag(@bike_reg.photo_1_url(:small_square)), bike_reg_photo_path(@bike_reg.xyz_code, 1) %>
       <% end %>
@@ -125,22 +126,30 @@ Registration created at <%= @bike_reg.created_at %> (<%= time_ago_in_words(@bike
       <% if @bike_reg.photo_6.present? %>
         <%= link_to image_tag(@bike_reg.photo_6_url(:small_square)), bike_reg_photo_path(@bike_reg.xyz_code, 6) %>
       <% end %>
-    
+
     <% end %>
-    
+
     <% if (@bike_reg.authorized?(session[:email]) and @bike_reg.photo_slot_available?) %>
-      <%= form_for(@bike_reg, :url => {:action => :add_photo}, :html => { :class => "form-horizontal"}) do |f| %>
+      <%= form_for(@bike_reg, :url => {:action => :add_photo}) do |f| %>
 
+        <br><br>
+        
         <legend>Add a photo</legend>
-      
   
-          <%= f.hidden_field("#{@bike_reg.open_photo_slot}_cache") %>
-          <%= f.file_field @bike_reg.open_photo_slot, :class => "form-control" %>
+        <div class="row">
+          <div class="col-xs-7">
+            <%= f.hidden_field("#{@bike_reg.open_photo_slot}_cache") %>
+            <%= f.file_field @bike_reg.open_photo_slot %>
+          </div>
+          <div class="col-xs-4">
+            <button type="submit" class="btn btn-primary btn-sm">
+              <span class="glyphicon glyphicon-upload"></span> Upload
+            </button>
+          </div>
+        </div>
 
-          <button type="submit" class="btn btn-primary btn-sm">
-          <span class="glyphicon glyphicon-upload"></span> Upload
-          </button>
-  
       <% end %>
     <% end %>
-</div></div>
+    
+  </div>
+</div>
