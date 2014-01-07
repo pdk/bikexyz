@@ -68,7 +68,7 @@
         text-align: center;
         width: 10em; 
         font-size: 200%; 
-        color: #009245; 
+        color: #094; 
         opacity: .9; 
         background-color: #eee;
         display: block;
@@ -88,7 +88,7 @@
       <!-- begin boot_simple main layout container -->
       <div class="container">
         <div class="row">
-          <div class="col-xs-1"><%= image_tag "logo_sml.png", :alt => "bikexyz logo" %></div>
+          <div class="col-xs-1"><%= image_tag "logo_sml.png" %></div>
         
           <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-0 col-md-6">
             <nav>
@@ -168,7 +168,14 @@
     <% if do_show_copyright? %>
       <div id="footer">
         <div class="container">
-          <p class="text-muted text-center copy-notice">&copy; <%= SITE_TITLE %> <%= Date.today.year %></p>
+          <div class="row">
+            <div class="col-xs-6">
+              <p class="text-muted text-left copy-notice">&copy; <%= SITE_TITLE %> <%= Date.today.year %></p>
+            </div>
+            <div class="col-xs-6">
+              <p class="text-muted text-right copy-notice">Questions? Problems? Suggestions? <%= link_to "mordac@bikexyz.com", "mailto:mordac@bikexyz.com" %></p>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>

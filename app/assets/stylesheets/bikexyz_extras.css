@@ -20,7 +20,7 @@ ul.nav-menu {
   margin-left: 0px;
   border: 0px;
   white-space: nowrap;
-  background-color: #009245;
+  background-color: #094;
   color: #fff;
   text-decoration: none;
   padding-top: 15px;
@@ -28,7 +28,7 @@ ul.nav-menu {
 }
 
 .nav-menu li a:hover {
-  background-color: #006837;
+  background-color: #063;
 }
 
 .verified_notice {
@@ -45,9 +45,9 @@ h2.regcode {
 }
 
 span.regcode {
-  color: #006837;
+  color: #063;
   font-weight: bold;
-  border: 2px solid #006837;
+  border: 2px solid #063;
   border-radius: 20px;
   padding: 5px 10px 5px 10px;
 }
