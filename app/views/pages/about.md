@@ -1,7 +1,6 @@
 ## About
 
-I (<a href="http://twitter.com/phlatphrog" target="_blank">Patrick Kelly</a>) am very concerned about climate change, aka global warming, aka the
-greenhouse effect.
+I (<a href="http://twitter.com/phlatphrog" target="_blank">Patrick Kelly</a>) am very concerned about anthropogenic climate change.
 
 I believe that we need to re-architect our lives so as to reduce carbon emissions. One of
 the best life changes a person can make, both for their own health, and for the health of
