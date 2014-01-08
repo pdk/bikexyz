@@ -17,8 +17,6 @@ class BikeRegsController < ApplicationController
   def search
     @query = params[:query]
     
-    flash.now[:notice] = "This is a sample notice!"
-    
     if @query.present?
       @search_results = BikeReg.text_search(@query,25)
       if @search_results.blank?
