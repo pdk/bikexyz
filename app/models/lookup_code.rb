@@ -42,6 +42,9 @@ class LookupCode < ActiveRecord::Base
   def LookupCode.next_code(max_tries=100)    
     begin
       x = LookupCode.create!
+      if RESERVED_XYZ_CODES.include? x.xyz_code
+        return LookupCode.next_code(max_tries - 1)
+      end
     rescue ActiveRecord::RecordNotUnique
       if max_tries > 1
         return LookupCode.next_code(max_tries - 1)

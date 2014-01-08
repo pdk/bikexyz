@@ -21,6 +21,7 @@ Bikexyz::Application.routes.draw do
   get "mine", :to => 'bike_regs#mine', :as => :my_bike_regs
   post 'register', :to => 'bike_regs#create', :as => :bike_regs
   get 'register', :to => 'bike_regs#new', :as => :new_bike_reg
+  
   get ':xyz_code/edit', :to => 'bike_regs#edit', :as => :edit_bike_reg
   get ':xyz_code(.:format)(/)', :to => 'bike_regs#show', :as => :bike_reg
   match ':xyz_code', :to => 'bike_regs#update', :as => :update_bike_reg, :via => [:put, :post]
