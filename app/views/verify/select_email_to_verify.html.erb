@@ -19,9 +19,12 @@
   <% end %>
 </ul>
 
-<p> Enter the complete email address to verify: </p>
+<p> We do not display users email address. The above is meant to provide enough of a hint for you
+to remember which email address you used to register. Enter the full, correct email address 
+below, and we'll send you an email with a link you can use to verify your identity.
+</p>
 
 <form action="" method="post">
 <%= email_field_tag :email, nil, :required => true, :autofocus => true %>
-<%= submit_tag "Send Verification Email" %>
+<%= submit_tag "Send Verification Email", :class => "btn btn-primary" %>
 </form>

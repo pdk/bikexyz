@@ -60,4 +60,8 @@ module ApplicationHelper
   def include_stripe_js?
     @include_stripe_js || false
   end
+  
+  def is_auth?(bike_reg)
+    bike_reg.authorized?(session[:email])
+  end
 end

@@ -22,9 +22,11 @@ Registration created at <%= @bike_reg.created_at %> (<%= time_ago_in_words(@bike
 <div class="row">
   <div class="col-sm-6">
     
-    <p>
-      <%= button_to 'Edit this registration', edit_bike_reg_path(@bike_reg.xyz_code), :class => "btn btn-primary", :method => :get %>
-    </p>
+    <% if is_auth?(@bike_reg) %>
+      <p>
+        <%= button_to 'Edit this registration', edit_bike_reg_path(@bike_reg.xyz_code), :class => "btn btn-primary", :method => :get %>
+      </p>
+    <% end %>
 
     <legend>Owner</legend>
 
@@ -92,13 +94,31 @@ Registration created at <%= @bike_reg.created_at %> (<%= time_ago_in_words(@bike
 
     </dl>
 
-    <p>
-      <%= button_to 'Edit this registration', edit_bike_reg_path(@bike_reg.xyz_code), :class => "btn btn-primary", :method => :get %>
-    </p>
-
+    <% if is_auth?(@bike_reg) %>
+      <p>
+        <%= button_to 'Edit this registration', edit_bike_reg_path(@bike_reg.xyz_code), :class => "btn btn-primary", :method => :get %>
+      </p>
+    <% end %>
+    
   </div>
   <div class="col-sm-6">
   
+    <% if not is_auth?(@bike_reg) %>
+      <legend>Want to Edit or Add Photos?</legend>
+  
+        <p>If this is your bicycle registration, you can verify your identity
+          by email in order to edit this registration, or to upload photos
+          of yourself and your bicycle.
+        </p>
+          
+        <div class="row">
+          <div class="col-xs-8 col-xs-offset-4">
+            <%= link_to "Verify by Email", send_verify_email_path(@bike_reg.xyz_code), :class => "btn btn-primary", :rel => 'nofollow' %>
+          </div>
+        </div>
+  
+    <% end %>
+    
     <% if @bike_reg.has_photos? %>
 
       <legend>Photos</legend>
@@ -135,6 +155,17 @@ Registration created at <%= @bike_reg.created_at %> (<%= time_ago_in_words(@bike
         <br><br>
         
         <legend>Add a photo</legend>
+  
+        <p> You can add up to 6 photos. Here is a suggested list of photos:</p>
+        <ol>
+          <li> photo of the bicycle </li>
+          <li> mugshot of yourself </li>
+          <li> the serial number (on the bottom bracket) </li>
+          <li> you and your bike, in one photo </li>
+        </ol>
+          
+          
+  
   
         <div class="row">
           <div class="col-xs-7">
