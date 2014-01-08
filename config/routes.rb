@@ -7,8 +7,6 @@ Bikexyz::Application.routes.draw do
   get "verify/signout", :to => 'verify#signout', :as => :signout
   match "verify/:xyz_code", :to => 'verify#send_email', :as => :send_verify_email, :via => [:get, :post]
 
-  devise_for :users, path_names: { sign_in: "login", sign_out: "logout", sign_up: "new-account" }
-
   get 'faq', :to => 'pages#faq', :as => :faq
   get 'about', :to => 'pages#about', :as => :about
   get 'contact', :to => 'pages#contact', :as => :contact
@@ -88,4 +86,9 @@ Bikexyz::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+
+  devise_for :users, path_names: { sign_in: "login", sign_out: "logout", sign_up: "new-account" }
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
 end

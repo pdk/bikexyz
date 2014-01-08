@@ -14,7 +14,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '2.3.0'
 
 # Use unicorn as the app server
 gem 'unicorn'
@@ -35,3 +35,4 @@ gem 'redcarpet'
 gem 'postmark-rails'
 gem 'postmark-mitt'
 gem 'stripe'
+gem 'activeadmin'
