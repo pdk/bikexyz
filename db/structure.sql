@@ -257,46 +257,11 @@ ALTER SEQUENCE lookup_codes_id_seq OWNED BY lookup_codes.id;
 
 
 --
--- Name: order_types; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE order_types (
-    id integer NOT NULL,
-    name character varying(255),
-    description text,
-    price numeric(8,2),
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
-);
-
-
---
--- Name: order_types_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE order_types_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: order_types_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE order_types_id_seq OWNED BY order_types.id;
-
-
---
 -- Name: orders; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE orders (
     id integer NOT NULL,
-    order_type_id integer,
-    bike_reg_id integer,
     email character varying(255),
     name character varying(255),
     address character varying(255),
@@ -467,13 +432,6 @@ ALTER TABLE ONLY lookup_codes ALTER COLUMN id SET DEFAULT nextval('lookup_codes_
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY order_types ALTER COLUMN id SET DEFAULT nextval('order_types_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
 ALTER TABLE ONLY orders ALTER COLUMN id SET DEFAULT nextval('orders_id_seq'::regclass);
 
 
@@ -537,14 +495,6 @@ ALTER TABLE ONLY inbound_emails
 
 ALTER TABLE ONLY lookup_codes
     ADD CONSTRAINT lookup_codes_pkey PRIMARY KEY (id);
-
-
---
--- Name: order_types_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY order_types
-    ADD CONSTRAINT order_types_pkey PRIMARY KEY (id);
 
 
 --
@@ -727,3 +677,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140108084627');
 INSERT INTO schema_migrations (version) VALUES ('20140108084630');
 
 INSERT INTO schema_migrations (version) VALUES ('20140108084631');
+
+INSERT INTO schema_migrations (version) VALUES ('20140112205120');
