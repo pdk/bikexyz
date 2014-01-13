@@ -257,6 +257,40 @@ ALTER SEQUENCE lookup_codes_id_seq OWNED BY lookup_codes.id;
 
 
 --
+-- Name: order_products; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE order_products (
+    id integer NOT NULL,
+    order_id integer,
+    product_id integer,
+    xyz_code character varying(255),
+    count integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: order_products_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE order_products_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: order_products_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE order_products_id_seq OWNED BY order_products.id;
+
+
+--
 -- Name: orders; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -291,6 +325,72 @@ CREATE SEQUENCE orders_id_seq
 --
 
 ALTER SEQUENCE orders_id_seq OWNED BY orders.id;
+
+
+--
+-- Name: product_types; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE product_types (
+    id integer NOT NULL,
+    name character varying(255),
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: product_types_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE product_types_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: product_types_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE product_types_id_seq OWNED BY product_types.id;
+
+
+--
+-- Name: products; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE products (
+    id integer NOT NULL,
+    product_type_id integer,
+    name character varying(255),
+    description text,
+    price numeric(8,2),
+    stock integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: products_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE products_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: products_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE products_id_seq OWNED BY products.id;
 
 
 --
@@ -432,7 +532,28 @@ ALTER TABLE ONLY lookup_codes ALTER COLUMN id SET DEFAULT nextval('lookup_codes_
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY order_products ALTER COLUMN id SET DEFAULT nextval('order_products_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY orders ALTER COLUMN id SET DEFAULT nextval('orders_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY product_types ALTER COLUMN id SET DEFAULT nextval('product_types_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY products ALTER COLUMN id SET DEFAULT nextval('products_id_seq'::regclass);
 
 
 --
@@ -498,11 +619,35 @@ ALTER TABLE ONLY lookup_codes
 
 
 --
+-- Name: order_products_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY order_products
+    ADD CONSTRAINT order_products_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: orders_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY orders
     ADD CONSTRAINT orders_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: product_types_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY product_types
+    ADD CONSTRAINT product_types_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: products_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY products
+    ADD CONSTRAINT products_pkey PRIMARY KEY (id);
 
 
 --
@@ -679,3 +824,9 @@ INSERT INTO schema_migrations (version) VALUES ('20140108084630');
 INSERT INTO schema_migrations (version) VALUES ('20140108084631');
 
 INSERT INTO schema_migrations (version) VALUES ('20140112205120');
+
+INSERT INTO schema_migrations (version) VALUES ('20140112205932');
+
+INSERT INTO schema_migrations (version) VALUES ('20140112210148');
+
+INSERT INTO schema_migrations (version) VALUES ('20140113071629');

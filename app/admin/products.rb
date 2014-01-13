@@ -1,4 +1,4 @@
-ActiveAdmin.register Order do
+ActiveAdmin.register Product do
   menu :parent => "Store"
   
 end
