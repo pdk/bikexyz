@@ -68,6 +68,10 @@ there are high rates of bicycle theft, and that they might be buying a stolen bi
 know how to check. And certainly, they do not know how to check every source of data that
 could be relevant.
 
+As easy as it is to report a stolen bicycle, it must be **even easier** to check. The people checking
+have far less incentive to do this, than the victims have to report. The level of effort must match
+the level of incentive. Currently, it's easier to report than to check. This is backwards.
+
 Bicycle thieves move masses of bikes from city to city, or region to region, in order to reduce the chances of 
 being found out. That is to say, they remove bikes from where they might be reported
 as stolen to places where there is no report.
