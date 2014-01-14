@@ -7,11 +7,14 @@ Bikexyz::Application.routes.draw do
   get "verify/signout", :to => 'verify#signout', :as => :signout
   match "verify/:xyz_code", :to => 'verify#send_email', :as => :send_verify_email, :via => [:get, :post]
 
-  get 'faq', :to => 'pages#faq', :as => :faq
+  get 'faq', :to => 'faqs#faq', :as => :faq
+  get 'faq/marking', :to => 'faqs#marking', :as => :marking
+  get 'faq/why', :to => 'faqs#why', :as => :why
+  get 'faq/changethegame', :to => 'faqs#changethegame', :as => :changethegame
+  
+  
   get 'about', :to => 'pages#about', :as => :about
   get 'contact', :to => 'pages#contact', :as => :contact
-  get 'marking', :to => 'pages#marking', :as => :marking
-  get 'why', :to => 'pages#why', :as => :why
   get 'handout', :to => 'pages#handout', :as => :handout
 
   get 'search', :to => 'bike_regs#search', :as => :search

@@ -2,11 +2,11 @@
 
 ### Why should I register on bikexyz.com?
 
-[Here is a page about that!](/why)
+[Here is a page about that!](/faq/why)
 
 ### How do I mark my bike with the registration address?
 
-[We have a page for that, too!](/marking)
+[We have a page for that, too!](/faq/marking)
 
 
 ### What is a "URL"?
