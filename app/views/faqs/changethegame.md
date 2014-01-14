@@ -38,7 +38,7 @@ bicycle theft goes down. The closer we get to Biketopia, the lower the rate of b
 Here's how:
 
 1. Make it easy for bicycle owners to report stolen bicycles.
-2. Make it trivial for anybody to check if a bicycle has been reported as stolen.
+2. Make it even easier for anybody to check if a bicycle has been reported as stolen.
 3. Educate every bicycle buyer to always check if a bicycle is stolen when buying a bicycle.
 
 None of these steps is easy, and **all three** must be achieved in order 
@@ -60,7 +60,7 @@ high.
 This link can be improved, but currently it is the strongest.
 
 
-#### 2. Make it trivial for anybody to check if a bicycle has been reported as stolen.
+#### 2. Make it even easier for anybody to check if a bicycle has been reported as stolen.
 
 This link is weak. It is possible to search reports of stolen bicycles. It is possible to check 
 bicycle registries. The problem is that it's too difficult. Even when buyers, know, theoretically, that
