@@ -34,8 +34,9 @@
   <table class="table table-responsive table-condensed">
 
     <tr>
-      <th class="text-center"> Code </th>
       <th> Registered </th>
+      <th> Code </th>
+      <th> Serial No. </th>
       <th> Owner </th>
       <th> Color </th>
       <th> Brand </th>
@@ -45,8 +46,9 @@
 
     <% @search_results.each do |bike_reg| %>
       <tr>
-        <td class="text-center"> <%= link_to bike_reg.xyz_code, bike_reg_path(bike_reg.xyz_code) %> </td>
         <td> <%= bike_reg.created_at.to_date %>
+          <td> <%= link_to bike_reg.xyz_code, bike_reg_path(bike_reg.xyz_code) %> </td>
+          <td> <%= link_to bike_reg.serial_number, bike_reg_path(bike_reg.xyz_code) %> </td>
         <td> <%= bike_reg.name %> </td>
         <td> <%= bike_reg.color %> </td>
         <td> <%= bike_reg.brand %> </td>

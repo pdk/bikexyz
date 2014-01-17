@@ -46,9 +46,15 @@ class BikeReg < ActiveRecord::Base
   end
 
   def BikeReg.text_search(query, limit=100)
+    query = query.strip
     if query.present?
-      rank = %{ts_rank(to_tsvector(searchable_text), plainto_tsquery(#{sanitize(query)}))}
-      where("searchable_text @@ :q", q: query).order("#{rank} desc").limit(limit)
+      if query.include?("*")
+        # doing partial serial number lookup
+        where("serial_number like ?", query.tr('*', '%')).order(:serial_number).limit(limit)
+      else
+        rank = %{ts_rank(to_tsvector(searchable_text), plainto_tsquery(#{sanitize(query)}))}
+        where("to_tsvector(searchable_text) @@ plainto_tsquery(:q)", q: query).order("#{rank} desc").limit(limit)
+      end
     else
       scoped.limit(limit)
     end
