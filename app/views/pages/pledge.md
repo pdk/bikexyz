@@ -6,7 +6,7 @@
     </h2>
   </div>
 
-  <p><br>&nbsp;&nbsp;&nbsp;<strong>In order to do my part to fight bicycle theft, I pledge that:</strong></p>
+  <p><br>&nbsp;&nbsp;&nbsp;<strong>To do my part in the fight against bicycle theft, I pledge that:</strong></p>
 
   <ol>
     <li>
