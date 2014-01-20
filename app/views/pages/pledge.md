@@ -24,7 +24,7 @@
       </ul>
     </li>
     <li>
-      Before purchasing a used bicycle, I will,
+      Before purchasing a used bicycle, I will
       <ul>
         <li>search online registries, using the serial number, for reports of it being stolen, <strong>and</strong></li>
         <li>attempt to verify that the seller is the rightful owner via online registration or other documentation.</li>
