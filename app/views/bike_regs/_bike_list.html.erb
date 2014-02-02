@@ -1,0 +1,81 @@
+<%
+@x = params[:x] == "p" ? :photos : :list  
+%>
+
+<p>
+  <%= (@x == :list) ? "list" : link_to("list", params.merge(:x => :l)) %> |
+  <%= (@x == :photos) ? "photos" : link_to("photos", params.merge(:x => :p)) %>
+</p>
+
+<% if @x == :list %>
+
+  <table class="table table-responsive table-condensed">
+
+    <tr>
+      <th> Registration </th>
+      <th> Date </th>
+      <th> Owner </th>
+      <th> Bicycle </th>
+      <th> Location </th>
+    </tr>
+
+    <% bike_list.each do |bike_reg| %>
+      <tr>
+        <td> <%= link_to "bikexyz.com/#{bike_reg.xyz_code}/", bike_reg_path(bike_reg.xyz_code) %> </td>
+        <td> <%= bike_reg.created_at.to_date.strftime("%Y-%b-%d") %>
+        <td> <%= bike_reg.name %> </td>
+        <td> <%= bike_reg.color %> <%= bike_reg.brand %> <%= bike_reg.model %></td>
+        <td> <%= comma_list bike_reg.city, bike_reg.state, bike_reg.country %> </td>
+      </tr>
+    <% end %>
+  </table>
+
+<% else %>
+
+  <% bikes_shown = {} %>
+  <p>
+  <% bike_list.each do |bike| %>
+  
+    <% if bike.photo_1.present? %>
+      <%= link_to image_tag(bike.photo_1_url(:small_square)), bike.xyz_code %>
+      <% bikes_shown[bike.xyz_code] = true %>
+    <% end %>
+
+    <% if bike.photo_2.present? %>
+      <%= link_to image_tag(bike.photo_2_url(:small_square)), bike.xyz_code %>
+      <% bikes_shown[bike.xyz_code] = true %>
+    <% end %>
+
+    <% if bike.photo_3.present? %>
+      <%= link_to image_tag(bike.photo_3_url(:small_square)), bike.xyz_code %>
+      <% bikes_shown[bike.xyz_code] = true %>
+    <% end %>
+
+    <% if bike.photo_4.present? %>
+      <%= link_to image_tag(bike.photo_4_url(:small_square)), bike.xyz_code %>
+      <% bikes_shown[bike.xyz_code] = true %>
+    <% end %>
+
+    <% if bike.photo_5.present? %>
+      <%= link_to image_tag(bike.photo_5_url(:small_square)), bike.xyz_code %>
+      <% bikes_shown[bike.xyz_code] = true %>
+    <% end %>
+
+    <% if bike.photo_6.present? %>
+      <%= link_to image_tag(bike.photo_6_url(:small_square)), bike.xyz_code %>
+      <% bikes_shown[bike.xyz_code] = true %>
+    <% end %>
+  
+  <% end %>
+  </p>
+  
+  <% missing_count = bike_list.size - bikes_shown.keys.size %>
+  <% if missing_count > 0 %>
+    <br class="clear">
+    <div class="alert alert-warning">
+      <h4>Notice</h4>
+      <p>Some of the registrations selected do not have photos and are not shown.
+        <%= link_to("View the list", params.merge(:x => :l)) %> to see the complete selection of registrations.</p>
+    </div>
+  <% end %>
+<% end %>

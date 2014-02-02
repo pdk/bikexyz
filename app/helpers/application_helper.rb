@@ -64,4 +64,8 @@ module ApplicationHelper
   def is_auth?(bike_reg)
     bike_reg.authorized?(session[:email])
   end
+  
+  def comma_list(*items)
+    items.reject {|i| i.blank?}.join ", "
+  end
 end

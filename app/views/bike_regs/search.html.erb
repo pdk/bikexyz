@@ -31,31 +31,6 @@
 
   <h3>Results</h3>
 
-  <table class="table table-responsive table-condensed">
-
-    <tr>
-      <th> Registered </th>
-      <th> Code </th>
-      <th> Serial No. </th>
-      <th> Owner </th>
-      <th> Color </th>
-      <th> Brand </th>
-      <th> City </th>
-      <th> Country </th>
-    </tr>
-
-    <% @search_results.each do |bike_reg| %>
-      <tr>
-        <td> <%= bike_reg.created_at.to_date %>
-          <td> <%= link_to bike_reg.xyz_code, bike_reg_path(bike_reg.xyz_code) %> </td>
-          <td> <%= link_to bike_reg.serial_number, bike_reg_path(bike_reg.xyz_code) %> </td>
-        <td> <%= bike_reg.name %> </td>
-        <td> <%= bike_reg.color %> </td>
-        <td> <%= bike_reg.brand %> </td>
-        <td> <%= bike_reg.city %> </td>
-        <td> <%= bike_reg.country %> </td>
-      </tr>
-    <% end %>
-  </table>
+  <%= render :partial => 'bike_list', :locals => { :bike_list => @search_results } %>
 
 <% end %>
