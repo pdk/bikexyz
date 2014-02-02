@@ -31,9 +31,9 @@ class LookupCode < ActiveRecord::Base
 
   def LookupCode.generate_random
     # four digit:
-    # n = Random.rand(194_480 - 9_261) + 9_261
+    n = Random.rand(194_480 - 9_261) + 9_261
     # five digit:
-    n = Random.rand(4_084_100 - 194_481) + 194_481
+    # n = Random.rand(4_084_100 - 194_481) + 194_481
     # six digit:
     # n = Random.rand(85_766_120 - 4_084_101) + 4_084_101
     LookupCode.n_to_obscode(n)
