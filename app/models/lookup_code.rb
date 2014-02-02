@@ -56,16 +56,22 @@ class LookupCode < ActiveRecord::Base
   end
 
   def LookupCode.n_to_obscode(n)
-    n.to_s(21).tr("0123456789abcdefghijk", "a8cqfh1j7xmnp5vw23469").upcase
+    n.to_s(21).tr(
+      "0123456789abcdefghijk", 
+      "a8cqfh1j7xmnp5vw23469").upcase
   end
     
   def LookupCode.obscode_to_n(c)
     # Once we've generated the code, we probably don't
     # care what the integer value was anymore.
-    LookupCode.disambiguate(c).downcase.tr("a8cqfh1j7xmnp5vw23469", "0123456789abcdefghijk").to_i(21)
+    LookupCode.disambiguate(c).downcase.tr(
+      "a8cqfh1j7xmnp5vw23469", 
+      "0123456789abcdefghijk").to_i(21)
   end
   
   def LookupCode.disambiguate(c)
-    c.downcase.tr("0123456789abcdefghijklmnopqrstuvwxyz", "q123456789a8cqffch1jx1mnqpqp57vvwxv2").upcase
+    c.downcase.tr(
+      "0123456789abcdefghijklmnopqrstuvwxyz", 
+      "q123456789a8cqffch1jx1mnqpqp57vvwxv2").upcase
   end
 end
