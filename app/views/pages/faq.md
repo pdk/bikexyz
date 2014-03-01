@@ -2,11 +2,11 @@
 
 ### Why should I register on bikexyz.com?
 
-[Here is a page about that!](/faq/why)
+[Here is a page about that!](/x/why)
 
 ### How do I mark my bike with the registration address?
 
-[We have a page for that, too!](/faq/marking)
+[We have a page for that, too!](/x/marking)
 
 
 ### What is a "URL"?
@@ -48,7 +48,7 @@ Also, you could use bikexyz.com just to create a page for your bicycle. We're no
 come check your bike to make sure the URL is on there.
 
 There are probably some ways for you to get the URL onto your bike without creating too much ugly.
-[Check out our page on marking your bike.](/marking)
+[Check out our page on marking your bike.](/x/marking)
 
 
 

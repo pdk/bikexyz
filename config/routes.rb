@@ -1,26 +1,27 @@
 Bikexyz::Application.routes.draw do
 
-  get "order", :to => 'order#index', :as => :orders
-  post "order", :to => 'order#create', :as => :orders
+  get "x/order", :to => 'order#index', :as => :orders
+  post "x/order", :to => 'order#create', :as => :orders
 
-  get "verify/:auth_id/:auth_key", :to => 'verify#index', :as => :verify
-  get "verify/signout", :to => 'verify#signout', :as => :signout
-  match "verify/:xyz_code", :to => 'verify#send_email', :as => :send_verify_email, :via => [:get, :post]
+  get "x/verify/:auth_id/:auth_key", :to => 'verify#index', :as => :verify
+  get "x/verify/signout", :to => 'verify#signout', :as => :signout
+  match "x/verify/:xyz_code", :to => 'verify#send_email', :as => :send_verify_email, :via => [:get, :post]
 
-  get 'faq', :to => 'faqs#faq', :as => :faq
-  get 'faq/marking', :to => 'faqs#marking', :as => :marking
-  get 'faq/why', :to => 'faqs#why', :as => :why
-  get 'faq/changethegame', :to => 'faqs#changethegame', :as => :changethegame
+  get 'x/faq', :to => 'pages#faq', :as => :faq
+  get 'x/marking', :to => 'pages#marking', :as => :marking
+  get 'x/why', :to => 'pages#why', :as => :why
+  get 'x/changethegame', :to => 'pages#changethegame', :as => :changethegame
   
   
-  get 'about', :to => 'pages#about', :as => :about
-  get 'contact', :to => 'pages#contact', :as => :contact
+  get 'x/about', :to => 'pages#about', :as => :about
+  get 'x/contact', :to => 'pages#contact', :as => :contact
   get 'x/handout', :to => 'pages#handout', :as => :handout
   get 'x/pledge', :to => 'pages#pledge', :as => :pledge
-
-  get 'search', :to => 'bike_regs#search', :as => :search
-  get "recent", :to => 'bike_regs#index', :as => :recent_bike_regs
-  get "mine", :to => 'bike_regs#mine', :as => :my_bike_regs
+  get 'x/more', :to => 'pages#more', :as => :more
+  
+  get 'x/search', :to => 'bike_regs#search', :as => :search
+  get "x/recent", :to => 'bike_regs#index', :as => :recent_bike_regs
+  get "x/mine", :to => 'bike_regs#mine', :as => :my_bike_regs
   post 'register', :to => 'bike_regs#create', :as => :bike_regs
   get 'register', :to => 'bike_regs#new', :as => :new_bike_reg
   

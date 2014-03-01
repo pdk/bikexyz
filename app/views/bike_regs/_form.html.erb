@@ -33,7 +33,10 @@
               <label for="bike_reg_serial_number" class="col-lg-3 control-label">Serial Number</label>
               <div class="col-lg-9">
             		<%= f.text_field  :serial_number, :placeholder => "A123456789", :class => "form-control" %>
-                <span class="help-block">Not required, but very, very good to include.</span>
+                <span class="help-block">
+                  This is the most thing you need to recover a stolen bike.
+                  You can leave it blank for now, and we'll email you reminders to add it later.
+                </span>
               </div>
             </div>
             
