@@ -16,7 +16,7 @@ Bikexyz::Application.routes.draw do
   get 'x/about', :to => 'pages#about', :as => :about
   get 'x/contact', :to => 'pages#contact', :as => :contact
   get 'x/handout', :to => 'pages#handout', :as => :handout
-  get 'x/pledge', :to => 'pages#pledge', :as => :pledge
+  get 'x/pledge', :to => 'pages#pledge', :as => :xpledge
   get 'x/more', :to => 'pages#more', :as => :more
   
   get 'x/search', :to => 'bike_regs#search', :as => :search
