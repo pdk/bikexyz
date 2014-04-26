@@ -1,5 +1,7 @@
 Bikexyz::Application.routes.draw do
 
+  resource :pledges
+  
   get "x/order", :to => 'order#index', :as => :orders
   post "x/order", :to => 'order#create', :as => :orders
 

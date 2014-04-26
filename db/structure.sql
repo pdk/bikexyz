@@ -328,6 +328,39 @@ ALTER SEQUENCE orders_id_seq OWNED BY orders.id;
 
 
 --
+-- Name: pledges; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE pledges (
+    id integer NOT NULL,
+    email character varying(255),
+    name character varying(255),
+    location character varying(255),
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: pledges_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE pledges_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: pledges_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE pledges_id_seq OWNED BY pledges.id;
+
+
+--
 -- Name: product_types; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -546,6 +579,13 @@ ALTER TABLE ONLY orders ALTER COLUMN id SET DEFAULT nextval('orders_id_seq'::reg
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY pledges ALTER COLUMN id SET DEFAULT nextval('pledges_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY product_types ALTER COLUMN id SET DEFAULT nextval('product_types_id_seq'::regclass);
 
 
@@ -632,6 +672,14 @@ ALTER TABLE ONLY order_products
 
 ALTER TABLE ONLY orders
     ADD CONSTRAINT orders_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: pledges_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY pledges
+    ADD CONSTRAINT pledges_pkey PRIMARY KEY (id);
 
 
 --
@@ -830,3 +878,9 @@ INSERT INTO schema_migrations (version) VALUES ('20140112205932');
 INSERT INTO schema_migrations (version) VALUES ('20140112210148');
 
 INSERT INTO schema_migrations (version) VALUES ('20140113071629');
+
+INSERT INTO schema_migrations (version) VALUES ('20140316181838');
+
+INSERT INTO schema_migrations (version) VALUES ('20140316182641');
+
+INSERT INTO schema_migrations (version) VALUES ('20140316191206');
