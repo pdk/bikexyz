@@ -37,6 +37,7 @@ class PledgesController < ApplicationController
   # GET /pledges/1/edit
   def edit
     @pledge = Pledge.find(params[:id])
+    redirect_to @pledge, notice: 'Edit not supported.'
   end
 
   # POST /pledges
@@ -59,27 +60,30 @@ class PledgesController < ApplicationController
   # PUT /pledges/1.json
   def update
     @pledge = Pledge.find(params[:id])
+    redirect_to @pledge, notice: 'Update not supported.'
 
-    respond_to do |format|
-      if @pledge.update_attributes(params[:pledge])
-        format.html { redirect_to @pledge, notice: 'Pledge was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @pledge.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @pledge.update_attributes(params[:pledge])
+    #     format.html { redirect_to @pledge, notice: 'Pledge was successfully updated.' }
+    #     format.json { head :no_content }
+    #   else
+    #     format.html { render action: "edit" }
+    #     format.json { render json: @pledge.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # DELETE /pledges/1
   # DELETE /pledges/1.json
   def destroy
     @pledge = Pledge.find(params[:id])
-    @pledge.destroy
+    redirect_to @pledge, notice: 'Destroy not supported.'
 
-    respond_to do |format|
-      format.html { redirect_to pledges_url }
-      format.json { head :no_content }
-    end
+    # @pledge.destroy
+    # 
+    # respond_to do |format|
+    #   format.html { redirect_to pledges_url }
+    #   format.json { head :no_content }
+    # end
   end
 end
