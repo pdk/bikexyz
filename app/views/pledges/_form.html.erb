@@ -1,13 +1,30 @@
-<%= simple_form_for(@pledge) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email %>
-    <%= f.input :name %>
-    <%= f.input :location %>
-  </div>
+  <%= form_for(@pledge, :html => { :class => "bs-component" }) do |f| %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+    <div class="form-group">
+      <div class="row">
+        <label class="control-label col-sm-1 col-sm-offset-1 col-xs-10 col-xs-offset-1" for="pledge_name">Name</label>
+        <%= f.text_field :name, :class => 'col-sm-8 col-xs-10 col-xs-offset-1', :required => true, :autofocus => true %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="control-label col-sm-1 col-sm-offset-1 col-xs-10 col-xs-offset-1" for="pledge_location">Location</label>
+        <%= f.text_field :location, :class => 'col-sm-8 col-xs-10 col-xs-offset-1', :required => true %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="control-label col-sm-1 col-sm-offset-1 col-xs-10 col-xs-offset-1" for="pledge_email">Email (optional)</label>
+        <%= f.email_field :email, :class => 'col-sm-8 col-xs-10 col-xs-offset-1' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <%= f.submit :submit, :class => "btn btn-primary col-sm-2 col-sm-offset-6 col-xs-5 col-xs-offset-3", :value => "Sign the Pledge" %>
+      </div>
+    </div>
+ 
+  <% end %>
+
+

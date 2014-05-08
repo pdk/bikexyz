@@ -1,4 +1,6 @@
 class PledgesController < ApplicationController
+  layout "boot_simple"
+
   # GET /pledges
   # GET /pledges.json
   def index

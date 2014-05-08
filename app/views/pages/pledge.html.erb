@@ -1,6 +1,5 @@
 
 <div class="panel panel-primary">
-  
   <div class="panel-heading">
     <h2 class="panel-title">
       The Cyclist's Pledge to Fight Bicycle Theft
@@ -28,9 +27,26 @@
     </li>
   </ol>
 
-  <p></p>
+  <%= form_for(@pledge, :html => { :class => "form-horizontal"}) do |f| %>
+    <fieldset>
+  
+      <div class="form-group <%= has_error? @bike_reg, :name %>">
+        <label for="pledge_name" class="col-lg-3 control-label">Name</label>
+        <div class="col-lg-9">
+      		<%= f.text_field  :name, :placeholder => "First M. Last", :autofocus => true, :required => true, :class => "form-control" %>
+          <%= error_message_for @pledge, :name, "Name", :help_text => "Required." %>
+        </div>
+      </div>
 
-  <%= render 'form' %>
+      <div class="form-group">
+        <label for="pledge_location" class="col-lg-3 control-label">Location</label>
+        <div class="col-lg-9">
+      		<%= f.text_field  :location, :placeholder => "San Francisco, CA;  Honolulu, HI; ...", :class => "form-control" %>
+        </div>
+      </div>
+  
+    </fieldset>
+  <% end %>
 
 </div>
 
@@ -52,5 +68,6 @@ number, do not deal with that seller.</p>
 
 <p>Verify that the serial number on the bicycle matches what the seller told you.
 If it's off by a single digit, do not buy the bicycle.</p>
+
 
 

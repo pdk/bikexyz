@@ -14,10 +14,6 @@ class BikeReg < ActiveRecord::Base
 
   @@secure_fields = [:primary_email, :second_email, :third_email, :cell_phone_one, :cell_phone_two]
 
-  def to_param
-    xyz_code
-  end
-  
   def as_xml(options={})
     options[:except] ||= @@secure_fields
     super(options)
@@ -29,6 +25,10 @@ class BikeReg < ActiveRecord::Base
     super(options)
   end
 
+  def to_param
+    xyz_code
+  end
+  
   def authorized?(email)
     if email.blank?
       return false

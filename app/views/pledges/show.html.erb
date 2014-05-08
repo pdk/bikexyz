@@ -1,20 +1,9 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Email:</b>
-  <%= @pledge.email %>
-</p>
+<h2>Thanks <%= @pledge.name %>!</h2>
 
-<p>
-  <b>Name:</b>
-  <%= @pledge.name %>
-</p>
-
-<p>
-  <b>Location:</b>
-  <%= @pledge.location %>
-</p>
+<p>You're welcome to  <%= link_to "register your bicycle here", new_bike_reg_path %>, if you'd like,
+  or maybe you'd rather just <%= link_to "be happy", "https://www.youtube.com/watch?v=y6Sxv-sUYtM" %>.
+  </p>
 
 
-<%= link_to 'Edit', edit_pledge_path(@pledge) %> |
-<%= link_to 'Back', pledges_path %>
+

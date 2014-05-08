@@ -242,7 +242,7 @@ CREATE TABLE lookup_codes (
 --
 
 CREATE SEQUENCE lookup_codes_id_seq
-    START WITH 10000
+    START WITH 1
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
@@ -825,8 +825,6 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 
 INSERT INTO schema_migrations (version) VALUES ('20131128172221');
 
-INSERT INTO schema_migrations (version) VALUES ('20131128180431');
-
 INSERT INTO schema_migrations (version) VALUES ('20131128180900');
 
 INSERT INTO schema_migrations (version) VALUES ('20131128184531');
@@ -834,8 +832,6 @@ INSERT INTO schema_migrations (version) VALUES ('20131128184531');
 INSERT INTO schema_migrations (version) VALUES ('20131128222924');
 
 INSERT INTO schema_migrations (version) VALUES ('20131128232002');
-
-INSERT INTO schema_migrations (version) VALUES ('20131201202442');
 
 INSERT INTO schema_migrations (version) VALUES ('20131201210615');
 
@@ -878,9 +874,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140112205932');
 INSERT INTO schema_migrations (version) VALUES ('20140112210148');
 
 INSERT INTO schema_migrations (version) VALUES ('20140113071629');
-
-INSERT INTO schema_migrations (version) VALUES ('20140316181838');
-
-INSERT INTO schema_migrations (version) VALUES ('20140316182641');
 
 INSERT INTO schema_migrations (version) VALUES ('20140316191206');
